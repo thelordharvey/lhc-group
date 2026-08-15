@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import chart1 from "@/assets/XAUUSD_2026-07-30_17-52-32_7a2b3.png.asset.json";
 import chart2 from "@/assets/XAUUSD_2026-02-05_20-12-27_59526.png.asset.json";
@@ -107,30 +108,50 @@ function InstagramIcon({ className }: { className?: string }) {
 }
 
 function Index() {
+  const [showProof, setShowProof] = useState(false);
+
+  const openProof = () => {
+    setShowProof(true);
+    requestAnimationFrame(() =>
+      document.getElementById("proof")?.scrollIntoView({ behavior: "smooth" }),
+    );
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
         <div className="mx-auto max-w-6xl px-5 pt-3">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
-            <a href="#top" className="flex items-center gap-2.5 truncate text-[17px] font-semibold tracking-[-0.02em]">
+            <a href="#top" aria-label="LHC Forex home" className="flex items-center">
               <img
                 src={logoAsset.url}
                 alt="LHC Forex logo"
                 className="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
               />
-              <span className="truncate">LHC <span className="text-primary">Forex</span></span>
             </a>
             <ul className="hidden gap-8 md:flex">
-              {["Method", "Process", "Proof", "Coaching"].map((l) => (
-                <li key={l}>
-                  <a
-                    href={`#${l.toLowerCase()}`}
-                    className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {l}
-                  </a>
-                </li>
-              ))}
+              {["Method", "Process", "Proof", "Coaching"].map((l) =>
+                l === "Proof" ? (
+                  <li key={l}>
+                    <button
+                      type="button"
+                      onClick={openProof}
+                      className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {l}
+                    </button>
+                  </li>
+                ) : (
+                  <li key={l}>
+                    <a
+                      href={`#${l.toLowerCase()}`}
+                      className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {l}
+                    </a>
+                  </li>
+                ),
+              )}
             </ul>
             <a
               href={INSTAGRAM_URL}
@@ -143,18 +164,24 @@ function Index() {
             </a>
           </div>
           <div className="-mx-1 flex gap-2 overflow-x-auto pb-3 pt-3">
-            {FILTERS.map((f, i) => (
-              <span
-                key={f}
-                className={`shrink-0 rounded-full px-4 py-1.5 text-[15px] font-medium ${
-                  i === 0
-                    ? "bg-tg-panel-hover text-foreground"
-                    : "bg-tg-panel text-muted-foreground"
-                }`}
-              >
-                {f}
-              </span>
-            ))}
+            {FILTERS.map((f, i) => {
+              const isProof = f.toLowerCase() === "proof";
+              const active = isProof ? showProof : i === 0 && !showProof;
+              return (
+                <button
+                  key={f}
+                  type="button"
+                  onClick={() => (isProof ? (showProof ? setShowProof(false) : openProof()) : undefined)}
+                  className={`shrink-0 rounded-full px-4 py-1.5 text-[15px] font-medium transition-colors ${
+                    active
+                      ? "bg-tg-panel-hover text-foreground"
+                      : "bg-tg-panel text-muted-foreground"
+                  }`}
+                >
+                  {f}
+                </button>
+              );
+            })}
           </div>
         </div>
       </nav>
@@ -185,12 +212,13 @@ function Index() {
               <InstagramIcon className="h-5 w-5" />
               Message us on Instagram
             </a>
-            <a
-              href="#proof"
+            <button
+              type="button"
+              onClick={openProof}
               className="rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
             >
               See the proof
-            </a>
+            </button>
           </div>
           <dl className="mx-auto mt-12 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
             {STATS.map((s) => (
@@ -250,40 +278,42 @@ function Index() {
         </div>
       </section>
 
-      <section id="proof" className="px-5 py-16">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">Proof</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-            Real charts from the coaching desk
-          </h2>
-          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-            Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci
-            executed with the same rules we teach in 1-on-1 coaching.
-          </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {PROOF.map((p) => (
-              <figure
-                key={p.src}
-                className="overflow-hidden rounded-2xl border border-border bg-card"
-              >
-                <img
-                  src={p.src}
-                  alt={`${p.pair} trade setup shared by LHC Forex on ${p.date}`}
-                  loading="lazy"
-                  className="w-full bg-secondary object-cover"
-                />
-                <figcaption className="p-4">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="text-[15px] font-semibold">{p.pair}</span>
-                    <span className="text-[13px] text-muted-foreground">{p.date}</span>
-                  </div>
-                  <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{p.note}</p>
-                </figcaption>
-              </figure>
-            ))}
+      {showProof && (
+        <section id="proof" className="px-5 py-16">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">Proof</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
+              Real charts from the coaching desk
+            </h2>
+            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+              Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci
+              executed with the same rules we teach in 1-on-1 coaching.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {PROOF.map((p) => (
+                <figure
+                  key={p.src}
+                  className="overflow-hidden rounded-2xl border border-border bg-card"
+                >
+                  <img
+                    src={p.src}
+                    alt={`${p.pair} trade setup shared by LHC Forex on ${p.date}`}
+                    loading="lazy"
+                    className="w-full bg-secondary object-cover"
+                  />
+                  <figcaption className="p-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="text-[15px] font-semibold">{p.pair}</span>
+                      <span className="text-[13px] text-muted-foreground">{p.date}</span>
+                    </div>
+                    <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{p.note}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section id="coaching" className="px-5 pb-20">
         <div className="mx-auto max-w-6xl rounded-3xl border border-border bg-card p-8 text-center sm:p-14">
