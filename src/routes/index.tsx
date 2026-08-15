@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import chart1 from "@/assets/XAUUSD_2026-07-30_17-52-32_7a2b3.png.asset.json";
 import chart2 from "@/assets/XAUUSD_2026-02-05_20-12-27_59526.png.asset.json";
 import chart3 from "@/assets/XAUUSD_2026-02-09_14-52-45_4afeb.png.asset.json";
