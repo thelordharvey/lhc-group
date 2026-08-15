@@ -122,24 +122,29 @@ function Index() {
             </a>
           </div>
           <div className="-mx-1 flex gap-2 overflow-x-auto pb-3 pt-3">
-            {FILTERS.map((f, i) => {
-              const isProof = f.toLowerCase() === "proof";
-              const active = isProof ? showProof : i === 0 && !showProof;
-              return (
+            {FILTERS.map((f, i) =>
+              f.toLowerCase() === "proof" ? (
+                <Link
+                  key={f}
+                  to="/proof"
+                  className="shrink-0 rounded-full bg-tg-panel px-4 py-1.5 text-[15px] font-medium text-muted-foreground transition-colors hover:bg-tg-panel-hover hover:text-foreground"
+                >
+                  {f}
+                </Link>
+              ) : (
                 <button
                   key={f}
                   type="button"
-                  onClick={() => (isProof ? (showProof ? setShowProof(false) : openProof()) : undefined)}
                   className={`shrink-0 rounded-full px-4 py-1.5 text-[15px] font-medium transition-colors ${
-                    active
+                    i === 0
                       ? "bg-tg-panel-hover text-foreground"
-                      : "bg-tg-panel text-muted-foreground"
+                      : "bg-tg-panel text-muted-foreground hover:bg-tg-panel-hover hover:text-foreground"
                   }`}
                 >
                   {f}
                 </button>
-              );
-            })}
+              ),
+            )}
           </div>
         </div>
       </nav>
@@ -170,13 +175,12 @@ function Index() {
               <InstagramIcon className="h-5 w-5" />
               Message us on Instagram
             </a>
-            <button
-              type="button"
-              onClick={openProof}
+            <Link
+              to="/proof"
               className="rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
             >
               See the proof
-            </button>
+            </Link>
           </div>
           <dl className="mx-auto mt-12 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
             {STATS.map((s) => (
