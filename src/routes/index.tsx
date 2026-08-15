@@ -1,8 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import chart1 from "@/assets/XAUUSD_2026-07-30_17-52-32_7a2b3.png.asset.json";
-import chart2 from "@/assets/XAUUSD_2026-02-05_20-12-27_59526.png.asset.json";
-import chart3 from "@/assets/XAUUSD_2026-02-09_14-52-45_4afeb.png.asset.json";
-import chart4 from "@/assets/XAUUSD_2026-03-03_10-37-25_412f4.png.asset.json";
 import logoAsset from "@/assets/lhc-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -30,7 +26,7 @@ export const Route = createFileRoute("/")({
 const INSTAGRAM_URL =
   "https://www.instagram.com/thelordharvey?igsh=MXd3d2cwdGMwbHE5aQ%3D%3D&utm_source=qr";
 
-const FILTERS = ["All", "Forex 📈", "Coaching 🎯", "Proof 💵"];
+const FILTERS = ["All", "Forex", "Coaching", "Proof"];
 
 const PILLARS = [
   {
