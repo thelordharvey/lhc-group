@@ -107,30 +107,50 @@ function InstagramIcon({ className }: { className?: string }) {
 }
 
 function Index() {
+  const [showProof, setShowProof] = useState(false);
+
+  const openProof = () => {
+    setShowProof(true);
+    requestAnimationFrame(() =>
+      document.getElementById("proof")?.scrollIntoView({ behavior: "smooth" }),
+    );
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
         <div className="mx-auto max-w-6xl px-5 pt-3">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
-            <a href="#top" className="flex items-center gap-2.5 truncate text-[17px] font-semibold tracking-[-0.02em]">
+            <a href="#top" aria-label="LHC Forex home" className="flex items-center">
               <img
                 src={logoAsset.url}
                 alt="LHC Forex logo"
                 className="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
               />
-              <span className="truncate">LHC <span className="text-primary">Forex</span></span>
             </a>
             <ul className="hidden gap-8 md:flex">
-              {["Method", "Process", "Proof", "Coaching"].map((l) => (
-                <li key={l}>
-                  <a
-                    href={`#${l.toLowerCase()}`}
-                    className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {l}
-                  </a>
-                </li>
-              ))}
+              {["Method", "Process", "Proof", "Coaching"].map((l) =>
+                l === "Proof" ? (
+                  <li key={l}>
+                    <button
+                      type="button"
+                      onClick={openProof}
+                      className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {l}
+                    </button>
+                  </li>
+                ) : (
+                  <li key={l}>
+                    <a
+                      href={`#${l.toLowerCase()}`}
+                      className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {l}
+                    </a>
+                  </li>
+                ),
+              )}
             </ul>
             <a
               href={INSTAGRAM_URL}
@@ -143,18 +163,24 @@ function Index() {
             </a>
           </div>
           <div className="-mx-1 flex gap-2 overflow-x-auto pb-3 pt-3">
-            {FILTERS.map((f, i) => (
-              <span
-                key={f}
-                className={`shrink-0 rounded-full px-4 py-1.5 text-[15px] font-medium ${
-                  i === 0
-                    ? "bg-tg-panel-hover text-foreground"
-                    : "bg-tg-panel text-muted-foreground"
-                }`}
-              >
-                {f}
-              </span>
-            ))}
+            {FILTERS.map((f, i) => {
+              const isProof = f.toLowerCase() === "proof";
+              const active = isProof ? showProof : i === 0 && !showProof;
+              return (
+                <button
+                  key={f}
+                  type="button"
+                  onClick={() => (isProof ? (showProof ? setShowProof(false) : openProof()) : undefined)}
+                  className={`shrink-0 rounded-full px-4 py-1.5 text-[15px] font-medium transition-colors ${
+                    active
+                      ? "bg-tg-panel-hover text-foreground"
+                      : "bg-tg-panel text-muted-foreground"
+                  }`}
+                >
+                  {f}
+                </button>
+              );
+            })}
           </div>
         </div>
       </nav>
