@@ -65,33 +65,6 @@ const STATS = [
   { value: "24/7", label: "Desk support" },
 ];
 
-const PROOF = [
-  {
-    src: chart1.url,
-    pair: "XAU/USD · 15m",
-    date: "Jul 30, 2026",
-    note: "Trend SP/DM setup aligned with POC and Fibonacci — extreme entry, clean expansion.",
-  },
-  {
-    src: chart2.url,
-    pair: "XAU/USD · 5m",
-    date: "Feb 05, 2026",
-    note: "Last orderblock with imbalance, liquidity swept both sides before the move.",
-  },
-  {
-    src: chart3.url,
-    pair: "XAU/USD · 5m",
-    date: "Feb 09, 2026",
-    note: "5-star orderblock on trend, stop under the lowest low, target on resting liquidity.",
-  },
-  {
-    src: chart4.url,
-    pair: "XAU/USD · 5m",
-    date: "Mar 03, 2026",
-    note: "Higher timeframe bias respected — short from supply straight into the $$$ level.",
-  },
-];
-
 function InstagramIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
@@ -103,15 +76,6 @@ function InstagramIcon({ className }: { className?: string }) {
 }
 
 function Index() {
-  const [showProof, setShowProof] = useState(false);
-
-  const openProof = () => {
-    setShowProof(true);
-    requestAnimationFrame(() =>
-      document.getElementById("proof")?.scrollIntoView({ behavior: "smooth" }),
-    );
-  };
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
