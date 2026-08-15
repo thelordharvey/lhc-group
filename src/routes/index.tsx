@@ -1,9 +1,4 @@
-import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
-import chart1 from "@/assets/XAUUSD_2026-07-30_17-52-32_7a2b3.png.asset.json";
-import chart2 from "@/assets/XAUUSD_2026-02-05_20-12-27_59526.png.asset.json";
-import chart3 from "@/assets/XAUUSD_2026-02-09_14-52-45_4afeb.png.asset.json";
-import chart4 from "@/assets/XAUUSD_2026-03-03_10-37-25_412f4.png.asset.json";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/lhc-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -31,7 +26,7 @@ export const Route = createFileRoute("/")({
 const INSTAGRAM_URL =
   "https://www.instagram.com/thelordharvey?igsh=MXd3d2cwdGMwbHE5aQ%3D%3D&utm_source=qr";
 
-const FILTERS = ["All", "Forex 📈", "Coaching 🎯", "Proof 💵"];
+const FILTERS = ["All", "Forex", "Coaching", "Proof"];
 
 const PILLARS = [
   {
@@ -70,33 +65,6 @@ const STATS = [
   { value: "24/7", label: "Desk support" },
 ];
 
-const PROOF = [
-  {
-    src: chart1.url,
-    pair: "XAU/USD · 15m",
-    date: "Jul 30, 2026",
-    note: "Trend SP/DM setup aligned with POC and Fibonacci — extreme entry, clean expansion.",
-  },
-  {
-    src: chart2.url,
-    pair: "XAU/USD · 5m",
-    date: "Feb 05, 2026",
-    note: "Last orderblock with imbalance, liquidity swept both sides before the move.",
-  },
-  {
-    src: chart3.url,
-    pair: "XAU/USD · 5m",
-    date: "Feb 09, 2026",
-    note: "5-star orderblock on trend, stop under the lowest low, target on resting liquidity.",
-  },
-  {
-    src: chart4.url,
-    pair: "XAU/USD · 5m",
-    date: "Mar 03, 2026",
-    note: "Higher timeframe bias respected — short from supply straight into the $$$ level.",
-  },
-];
-
 function InstagramIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
@@ -108,15 +76,6 @@ function InstagramIcon({ className }: { className?: string }) {
 }
 
 function Index() {
-  const [showProof, setShowProof] = useState(false);
-
-  const openProof = () => {
-    setShowProof(true);
-    requestAnimationFrame(() =>
-      document.getElementById("proof")?.scrollIntoView({ behavior: "smooth" }),
-    );
-  };
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
@@ -133,13 +92,12 @@ function Index() {
               {["Method", "Process", "Proof", "Coaching"].map((l) =>
                 l === "Proof" ? (
                   <li key={l}>
-                    <button
-                      type="button"
-                      onClick={openProof}
+                    <Link
+                      to="/proof"
                       className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {l}
-                    </button>
+                    </Link>
                   </li>
                 ) : (
                   <li key={l}>
@@ -164,24 +122,29 @@ function Index() {
             </a>
           </div>
           <div className="-mx-1 flex gap-2 overflow-x-auto pb-3 pt-3">
-            {FILTERS.map((f, i) => {
-              const isProof = f.toLowerCase() === "proof";
-              const active = isProof ? showProof : i === 0 && !showProof;
-              return (
+            {FILTERS.map((f, i) =>
+              f.toLowerCase() === "proof" ? (
+                <Link
+                  key={f}
+                  to="/proof"
+                  className="shrink-0 rounded-full bg-tg-panel px-4 py-1.5 text-[15px] font-medium text-muted-foreground transition-colors hover:bg-tg-panel-hover hover:text-foreground"
+                >
+                  {f}
+                </Link>
+              ) : (
                 <button
                   key={f}
                   type="button"
-                  onClick={() => (isProof ? (showProof ? setShowProof(false) : openProof()) : undefined)}
                   className={`shrink-0 rounded-full px-4 py-1.5 text-[15px] font-medium transition-colors ${
-                    active
+                    i === 0
                       ? "bg-tg-panel-hover text-foreground"
-                      : "bg-tg-panel text-muted-foreground"
+                      : "bg-tg-panel text-muted-foreground hover:bg-tg-panel-hover hover:text-foreground"
                   }`}
                 >
                   {f}
                 </button>
-              );
-            })}
+              ),
+            )}
           </div>
         </div>
       </nav>
@@ -212,13 +175,12 @@ function Index() {
               <InstagramIcon className="h-5 w-5" />
               Message us on Instagram
             </a>
-            <button
-              type="button"
-              onClick={openProof}
+            <Link
+              to="/proof"
               className="rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
             >
               See the proof
-            </button>
+            </Link>
           </div>
           <dl className="mx-auto mt-12 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
             {STATS.map((s) => (
@@ -277,43 +239,6 @@ function Index() {
           </ol>
         </div>
       </section>
-
-      {showProof && (
-        <section id="proof" className="px-5 py-16">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">Proof</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-              Real charts from the coaching desk
-            </h2>
-            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-              Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci
-              executed with the same rules we teach in 1-on-1 coaching.
-            </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {PROOF.map((p) => (
-                <figure
-                  key={p.src}
-                  className="overflow-hidden rounded-2xl border border-border bg-card"
-                >
-                  <img
-                    src={p.src}
-                    alt={`${p.pair} trade setup shared by LHC Forex on ${p.date}`}
-                    loading="lazy"
-                    className="w-full bg-secondary object-cover"
-                  />
-                  <figcaption className="p-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-[15px] font-semibold">{p.pair}</span>
-                      <span className="text-[13px] text-muted-foreground">{p.date}</span>
-                    </div>
-                    <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{p.note}</p>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       <section id="coaching" className="px-5 pb-20">
         <div className="mx-auto max-w-6xl rounded-3xl border border-border bg-card p-8 text-center sm:p-14">
