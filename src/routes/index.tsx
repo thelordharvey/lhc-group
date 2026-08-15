@@ -111,8 +111,13 @@ function Index() {
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
         <div className="mx-auto max-w-6xl px-5 pt-3">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
-            <a href="#top" className="truncate text-[17px] font-semibold tracking-[-0.02em]">
-              LHC <span className="text-primary">Forex</span>
+            <a href="#top" className="flex items-center gap-2.5 truncate text-[17px] font-semibold tracking-[-0.02em]">
+              <img
+                src={logoAsset.url}
+                alt="LHC Forex logo"
+                className="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
+              />
+              <span className="truncate">LHC <span className="text-primary">Forex</span></span>
             </a>
             <ul className="hidden gap-8 md:flex">
               {["Method", "Process", "Proof", "Coaching"].map((l) => (
