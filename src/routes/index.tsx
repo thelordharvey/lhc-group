@@ -78,23 +78,28 @@ function InstagramIcon({ className }: { className?: string }) {
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
-        <div className="mx-auto max-w-6xl px-5 pt-3">
-          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
-            <a href="#top" aria-label="LHC Forex home" className="flex items-center">
-              <img
-                src={logoAsset.url}
-                alt="LHC Forex logo"
-                className="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
-              />
-            </a>
-            <ul className="hidden gap-8 md:flex">
+      <nav className="fixed inset-x-0 top-0 z-50 px-5 pt-4">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+          <a
+            href="#top"
+            aria-label="LHC Forex home"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-card/90 shadow-lg backdrop-blur-xl"
+          >
+            <img
+              src={logoAsset.url}
+              alt="LHC Forex logo"
+              className="h-8 w-8 rounded-full object-cover"
+            />
+          </a>
+
+          <div className="hidden rounded-2xl border border-border bg-card/90 p-1.5 shadow-lg backdrop-blur-xl md:flex">
+            <ul className="flex gap-1">
               {["Method", "Process", "Proof", "Coaching"].map((l) =>
                 l === "Proof" ? (
                   <li key={l}>
                     <Link
                       to="/proof"
-                      className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                      className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
                     >
                       {l}
                     </Link>
@@ -103,7 +108,7 @@ function Index() {
                   <li key={l}>
                     <a
                       href={`#${l.toLowerCase()}`}
-                      className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                      className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
                     >
                       {l}
                     </a>
@@ -111,42 +116,44 @@ function Index() {
                 ),
               )}
             </ul>
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="flex shrink-0 items-center gap-2 rounded-full bg-primary px-4 py-2 text-[15px] font-medium text-primary-foreground transition-colors hover:bg-primary-glow"
-            >
-              <InstagramIcon className="h-4 w-4" />
-              Contact
-            </a>
           </div>
-          <div className="mx-auto mt-4 max-w-fit rounded-2xl border border-border bg-card/80 p-2 shadow-xl backdrop-blur-xl">
-            <div className="flex gap-1.5 overflow-x-auto">
-              {FILTERS.map((f, i) =>
-                f.toLowerCase() === "proof" ? (
-                  <Link
-                    key={f}
-                    to="/proof"
-                    className="shrink-0 rounded-xl bg-tg-panel px-4 py-2 text-[15px] font-medium text-muted-foreground transition-colors hover:bg-tg-panel-hover hover:text-foreground"
-                  >
-                    {f}
-                  </Link>
-                ) : (
-                  <button
-                    key={f}
-                    type="button"
-                    className={`shrink-0 rounded-xl px-4 py-2 text-[15px] font-medium transition-colors ${
-                      i === 0
-                        ? "bg-tg-panel-hover text-foreground"
-                        : "bg-tg-panel text-muted-foreground hover:bg-tg-panel-hover hover:text-foreground"
-                    }`}
-                  >
-                    {f}
-                  </button>
-                ),
-              )}
-            </div>
+
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="flex shrink-0 items-center gap-2 rounded-2xl border border-border bg-card/90 px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel"
+          >
+            <InstagramIcon className="h-4 w-4" />
+            Contact
+          </a>
+        </div>
+
+        <div className="mx-auto mt-3 max-w-fit rounded-2xl border border-border bg-card/90 p-2 shadow-xl backdrop-blur-xl">
+          <div className="flex gap-1.5 overflow-x-auto">
+            {FILTERS.map((f, i) =>
+              f.toLowerCase() === "proof" ? (
+                <Link
+                  key={f}
+                  to="/proof"
+                  className="shrink-0 rounded-xl bg-tg-panel px-4 py-2 text-[15px] font-medium text-muted-foreground transition-colors hover:bg-tg-panel-hover hover:text-foreground"
+                >
+                  {f}
+                </Link>
+              ) : (
+                <button
+                  key={f}
+                  type="button"
+                  className={`shrink-0 rounded-xl px-4 py-2 text-[15px] font-medium transition-colors ${
+                    i === 0
+                      ? "bg-tg-panel-hover text-foreground"
+                      : "bg-tg-panel text-muted-foreground hover:bg-tg-panel-hover hover:text-foreground"
+                  }`}
+                >
+                  {f}
+                </button>
+              ),
+            )}
           </div>
         </div>
       </nav>
