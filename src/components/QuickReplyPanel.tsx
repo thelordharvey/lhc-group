@@ -31,7 +31,7 @@ export function QuickReplyButton({
         setTimeout(() => setRipples((r) => r.filter((x) => x.id !== id)), 550);
         onSelect(reply);
       }}
-      className={`relative flex h-10 min-w-0 items-center justify-center gap-2 overflow-hidden rounded-[9px] bg-tg-panel/70 px-3 text-[14px] font-medium text-foreground backdrop-blur-md transition-colors duration-150 hover:bg-tg-panel-hover active:bg-tg-panel-hover ${
+      className={`relative flex h-10 min-w-0 items-center justify-center gap-1.5 overflow-hidden rounded-[10px] bg-tg-panel/55 px-3 text-[14px] font-medium tracking-[-0.01em] text-foreground shadow-[inset_0_0.5px_0_0_oklch(1_0_0_/_0.06)] backdrop-blur-xl transition-[background-color,transform] duration-150 hover:bg-tg-panel-hover/70 active:scale-[0.985] active:bg-tg-panel-hover ${
         reply.full ? "col-span-2" : ""
       }`}
     >
@@ -60,7 +60,7 @@ export function QuickReplyPanel({
   onSelect: (reply: QuickReply) => void;
 }) {
   return (
-    <div className="grid grid-cols-2 gap-[7px] rounded-xl border border-border bg-card/60 p-[7px] backdrop-blur-xl">
+    <div className="grid grid-cols-2 gap-[6px]">
       {replies.map((reply) => (
         <QuickReplyButton key={reply.id} reply={reply} onSelect={onSelect} />
       ))}

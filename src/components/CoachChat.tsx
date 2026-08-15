@@ -77,7 +77,7 @@ export function CoachChat() {
 
   return (
     <div className="relative flex h-[560px] flex-col overflow-hidden rounded-2xl border border-border bg-card/50 backdrop-blur-xl">
-      <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-border px-4 py-3">
+      <header className="flex items-center gap-4 border-b border-border px-4 py-3">
         <div className="flex min-w-0 items-center gap-3">
           <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
             LHC
@@ -87,7 +87,6 @@ export function CoachChat() {
             <p className="mono-label text-primary-glow">online</p>
           </div>
         </div>
-        <span className="mono-label text-muted-foreground">Live desk</span>
       </header>
 
       <div ref={feedRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
@@ -115,15 +114,19 @@ export function CoachChat() {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Message your coach…"
+            placeholder="Message"
             aria-label="Message your coach"
-            className="h-10 min-w-0 flex-1 rounded-[9px] bg-tg-panel/50 px-3 text-sm text-foreground outline-none placeholder:text-muted-foreground focus:bg-tg-panel/80"
+            className="h-10 min-w-0 flex-1 rounded-full border border-border bg-tg-panel/40 px-4 text-[15px] text-foreground outline-none placeholder:text-muted-foreground focus:border-primary/60"
           />
           <button
             type="submit"
-            className="h-10 shrink-0 rounded-[9px] bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-glow"
+            aria-label="Send message"
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground transition-[background-color,transform] hover:bg-primary-glow active:scale-95"
           >
-            Send
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M12 19V5" />
+              <path d="m5 12 7-7 7 7" />
+            </svg>
           </button>
         </form>
       </div>
