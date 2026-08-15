@@ -250,40 +250,42 @@ function Index() {
         </div>
       </section>
 
-      <section id="proof" className="px-5 py-16">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">Proof</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-            Real charts from the coaching desk
-          </h2>
-          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-            Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci
-            executed with the same rules we teach in 1-on-1 coaching.
-          </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {PROOF.map((p) => (
-              <figure
-                key={p.src}
-                className="overflow-hidden rounded-2xl border border-border bg-card"
-              >
-                <img
-                  src={p.src}
-                  alt={`${p.pair} trade setup shared by LHC Forex on ${p.date}`}
-                  loading="lazy"
-                  className="w-full bg-secondary object-cover"
-                />
-                <figcaption className="p-4">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="text-[15px] font-semibold">{p.pair}</span>
-                    <span className="text-[13px] text-muted-foreground">{p.date}</span>
-                  </div>
-                  <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{p.note}</p>
-                </figcaption>
-              </figure>
-            ))}
+      {showProof && (
+        <section id="proof" className="px-5 py-16">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">Proof</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
+              Real charts from the coaching desk
+            </h2>
+            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+              Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci
+              executed with the same rules we teach in 1-on-1 coaching.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {PROOF.map((p) => (
+                <figure
+                  key={p.src}
+                  className="overflow-hidden rounded-2xl border border-border bg-card"
+                >
+                  <img
+                    src={p.src}
+                    alt={`${p.pair} trade setup shared by LHC Forex on ${p.date}`}
+                    loading="lazy"
+                    className="w-full bg-secondary object-cover"
+                  />
+                  <figcaption className="p-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="text-[15px] font-semibold">{p.pair}</span>
+                      <span className="text-[13px] text-muted-foreground">{p.date}</span>
+                    </div>
+                    <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{p.note}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section id="coaching" className="px-5 pb-20">
         <div className="mx-auto max-w-6xl rounded-3xl border border-border bg-card p-8 text-center sm:p-14">
