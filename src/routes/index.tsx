@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 const INSTAGRAM_URL =
   "https://www.instagram.com/thelordharvey?igsh=MXd3d2cwdGMwbHE5aQ%3D%3D&utm_source=qr";
 
-const FILTERS = ["All", "Forex", "Coaching", "Proof"];
+
 
 const PILLARS = [
   {
@@ -129,33 +129,6 @@ function Index() {
           </a>
         </div>
 
-        <div className="mx-auto mt-3 max-w-fit rounded-2xl border border-border bg-card/90 p-2 shadow-xl backdrop-blur-xl">
-          <div className="flex gap-1.5 overflow-x-auto">
-            {FILTERS.map((f, i) =>
-              f.toLowerCase() === "proof" ? (
-                <Link
-                  key={f}
-                  to="/proof"
-                  className="shrink-0 rounded-xl bg-tg-panel px-4 py-2 text-[15px] font-medium text-muted-foreground transition-colors hover:bg-tg-panel-hover hover:text-foreground"
-                >
-                  {f}
-                </Link>
-              ) : (
-                <button
-                  key={f}
-                  type="button"
-                  className={`shrink-0 rounded-xl px-4 py-2 text-[15px] font-medium transition-colors ${
-                    i === 0
-                      ? "bg-tg-panel-hover text-foreground"
-                      : "bg-tg-panel text-muted-foreground hover:bg-tg-panel-hover hover:text-foreground"
-                  }`}
-                >
-                  {f}
-                </button>
-              ),
-            )}
-          </div>
-        </div>
       </nav>
 
       <header id="top" className="relative overflow-hidden px-5 pt-40 pb-16">
