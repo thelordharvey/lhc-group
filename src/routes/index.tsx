@@ -212,12 +212,13 @@ function Index() {
               <InstagramIcon className="h-5 w-5" />
               Message us on Instagram
             </a>
-            <a
-              href="#proof"
+            <button
+              type="button"
+              onClick={openProof}
               className="rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
             >
               See the proof
-            </a>
+            </button>
           </div>
           <dl className="mx-auto mt-12 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
             {STATS.map((s) => (
