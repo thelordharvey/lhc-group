@@ -92,13 +92,12 @@ function Index() {
               {["Method", "Process", "Proof", "Coaching"].map((l) =>
                 l === "Proof" ? (
                   <li key={l}>
-                    <button
-                      type="button"
-                      onClick={openProof}
+                    <Link
+                      to="/proof"
                       className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {l}
-                    </button>
+                    </Link>
                   </li>
                 ) : (
                   <li key={l}>
