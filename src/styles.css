@@ -68,48 +68,49 @@
 
 :root {
   --radius: 0.75rem;
-  /* Telegram iOS light theme */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.16 0.005 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.16 0.005 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.005 260);
-  --primary: oklch(0.588 0.222 258);
-  --primary-foreground: oklch(1 0 0);
-  --primary-glow: oklch(0.66 0.18 250);
-  --secondary: oklch(0.968 0.002 260);
-  --secondary-foreground: oklch(0.2 0.005 260);
-  --muted: oklch(0.968 0.002 260);
-  --muted-foreground: oklch(0.58 0.008 260);
-  --accent: oklch(0.588 0.222 258);
-  --accent-foreground: oklch(1 0 0);
+  /* Lord Rosen reference palette: near-black #080808 + electric blue #3b82f6 */
+  --background: oklch(0.152 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.19 0.006 265);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.19 0.006 265);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.623 0.214 259.8);
+  --primary-foreground: oklch(0.985 0 0);
+  --primary-glow: oklch(0.7 0.17 255);
+  --secondary: oklch(0.23 0.008 265);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.23 0.008 265);
+  --muted-foreground: oklch(0.68 0.012 265);
+  --accent: oklch(0.623 0.214 259.8);
+  --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.62 0.23 27);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0 0 0 / 9%);
-  --input: oklch(0 0 0 / 12%);
-  --ring: oklch(0.588 0.222 258);
-  --tg-panel: oklch(0.968 0.002 260);
-  --tg-panel-hover: oklch(0.93 0.003 260);
-  --gradient-hero: radial-gradient(circle at 20% 20%, color-mix(in oklab, var(--primary) 18%, transparent) 0%, transparent 60%);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.623 0.214 259.8);
+  --tg-panel: oklch(0.23 0.008 265);
+  --tg-panel-hover: oklch(0.28 0.01 265);
+  --gradient-hero: radial-gradient(circle at 20% 20%, color-mix(in oklab, var(--primary) 22%, transparent) 0%, transparent 60%);
   --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
-  --shadow-glow: 0 20px 60px -20px color-mix(in oklab, var(--primary) 35%, transparent);
+  --shadow-glow: 0 20px 60px -20px color-mix(in oklab, var(--primary) 45%, transparent);
   --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --font-mono: "Space Mono", ui-monospace, monospace;
-  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-1: oklch(0.623 0.214 259.8);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --sidebar: oklch(0.19 0.006 265);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.623 0.214 259.8);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.23 0.008 265);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.623 0.214 259.8);
 }
+
 
 .dark {
   --background: oklch(0.129 0.042 264.695);
