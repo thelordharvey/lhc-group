@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CoachChat } from "@/components/CoachChat";
+import chart1 from "@/assets/XAUUSD_2026-07-30_17-52-32_7a2b3.png.asset.json";
+import chart2 from "@/assets/XAUUSD_2026-02-05_20-12-27_59526.png.asset.json";
+import chart3 from "@/assets/XAUUSD_2026-02-09_14-52-45_4afeb.png.asset.json";
+import chart4 from "@/assets/XAUUSD_2026-03-03_10-37-25_412f4.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,6 +25,11 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
+const INSTAGRAM_URL =
+  "https://www.instagram.com/thelordharvey?igsh=MXd3d2cwdGMwbHE5aQ%3D%3D&utm_source=qr";
+
+const FILTERS = ["All", "Forex 📈", "Coaching 🎯", "Proof 💵"];
 
 const PILLARS = [
   {
@@ -60,149 +68,249 @@ const STATS = [
   { value: "24/7", label: "Desk support" },
 ];
 
+const PROOF = [
+  {
+    src: chart1.url,
+    pair: "XAU/USD · 15m",
+    date: "Jul 30, 2026",
+    note: "Trend SP/DM setup aligned with POC and Fibonacci — extreme entry, clean expansion.",
+  },
+  {
+    src: chart2.url,
+    pair: "XAU/USD · 5m",
+    date: "Feb 05, 2026",
+    note: "Last orderblock with imbalance, liquidity swept both sides before the move.",
+  },
+  {
+    src: chart3.url,
+    pair: "XAU/USD · 5m",
+    date: "Feb 09, 2026",
+    note: "5-star orderblock on trend, stop under the lowest low, target on resting liquidity.",
+  },
+  {
+    src: chart4.url,
+    pair: "XAU/USD · 5m",
+    date: "Mar 03, 2026",
+    note: "Higher timeframe bias respected — short from supply straight into the $$$ level.",
+  },
+];
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/75 backdrop-blur-xl">
-        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 sm:flex sm:justify-between">
-          <a href="#top" className="mono-label truncate text-sm font-bold tracking-[2px]">
-            LHC <span className="text-primary">FOREX</span>
-          </a>
-          <ul className="hidden gap-9 md:flex">
-            {["Method", "Process", "Coaching", "Contact"].map((l) => (
-              <li key={l}>
-                <a
-                  href={`#${l.toLowerCase()}`}
-                  className="mono-label text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {l}
-                </a>
-              </li>
+      <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
+        <div className="mx-auto max-w-6xl px-5 pt-3">
+          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
+            <a href="#top" className="truncate text-[17px] font-semibold tracking-[-0.02em]">
+              LHC <span className="text-primary">Forex</span>
+            </a>
+            <ul className="hidden gap-8 md:flex">
+              {["Method", "Process", "Proof", "Coaching"].map((l) => (
+                <li key={l}>
+                  <a
+                    href={`#${l.toLowerCase()}`}
+                    className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {l}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="flex shrink-0 items-center gap-2 rounded-full bg-primary px-4 py-2 text-[15px] font-medium text-primary-foreground transition-colors hover:bg-primary-glow"
+            >
+              <InstagramIcon className="h-4 w-4" />
+              Contact
+            </a>
+          </div>
+          <div className="-mx-1 flex gap-2 overflow-x-auto pb-3 pt-3">
+            {FILTERS.map((f, i) => (
+              <span
+                key={f}
+                className={`shrink-0 rounded-full px-4 py-1.5 text-[15px] font-medium ${
+                  i === 0
+                    ? "bg-tg-panel-hover text-foreground"
+                    : "bg-tg-panel text-muted-foreground"
+                }`}
+              >
+                {f}
+              </span>
             ))}
-          </ul>
-          <a
-            href="#contact"
-            className="mono-label shrink-0 rounded-md bg-primary px-5 py-2.5 text-primary-foreground transition-colors hover:bg-primary-glow"
-          >
-            Get coached
-          </a>
+          </div>
         </div>
       </nav>
 
-      <header
-        id="top"
-        className="relative overflow-hidden px-5 pt-32 pb-20 sm:pt-40 sm:pb-28"
-      >
-        <div className="blob animate-blob left-[-160px] top-[-140px] h-[540px] w-[540px] bg-primary/35" />
-        <div className="blob animate-blob right-[-120px] top-[30%] h-[380px] w-[380px] bg-primary-glow/20" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2">
-          <div className="min-w-0">
-            <p className="mono-label text-primary-glow">Forex coaching group</p>
-            <h1 className="mt-5 text-4xl font-bold leading-[1.05] sm:text-6xl">
-              Trade with consistency.
-              <br />
-              <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                Grow for the long term.
-              </span>
-            </h1>
-            <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">
-              LHC Forex is a coaching group for traders who are tired of good weeks
-              followed by blown accounts. We build the process — risk, psychology and a
-              plan you actually follow — through personalized 1-on-1 coaching.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#contact"
-                className="rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-glow"
-              >
-                Start coaching
-              </a>
-              <a
-                href="#method"
-                className="rounded-md border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
-              >
-                See the method
-              </a>
-            </div>
-            <dl className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
-              {STATS.map((s) => (
-                <div key={s.label} className="min-w-0">
-                  <dt className="text-2xl font-bold text-foreground">{s.value}</dt>
-                  <dd className="mono-label mt-1 text-muted-foreground">{s.label}</dd>
-                </div>
-              ))}
-            </dl>
+      <header id="top" className="relative overflow-hidden px-5 pt-40 pb-16">
+        <div className="blob animate-blob left-[-160px] top-[-140px] h-[540px] w-[540px] bg-primary/20" />
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">
+            Forex coaching group
+          </p>
+          <h1 className="mt-4 text-4xl font-bold leading-[1.05] tracking-[-0.03em] sm:text-6xl">
+            Trade with consistency.
+            <br />
+            <span className="text-primary">Grow for the long term.</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-muted-foreground">
+            LHC Forex is a coaching group for traders tired of good weeks followed by blown
+            accounts. We build the process — risk, psychology and a plan you actually follow —
+            through personalized 1-on-1 coaching.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
+            >
+              <InstagramIcon className="h-5 w-5" />
+              Message us on Instagram
+            </a>
+            <a
+              href="#proof"
+              className="rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
+            >
+              See the proof
+            </a>
           </div>
-          <div id="contact" className="relative min-w-0">
-            <CoachChat />
-          </div>
+          <dl className="mx-auto mt-12 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
+            {STATS.map((s) => (
+              <div key={s.label} className="min-w-0">
+                <dt className="text-2xl font-bold">{s.value}</dt>
+                <dd className="mt-1 text-[13px] text-muted-foreground">{s.label}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </header>
 
-      <section id="method" className="relative px-5 py-20">
+      <section id="method" className="relative px-5 py-16">
         <div className="mx-auto max-w-6xl">
-          <p className="mono-label text-primary-glow">The method</p>
-          <h2 className="mt-4 max-w-xl text-3xl font-bold sm:text-4xl">
+          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">The method</p>
+          <h2 className="mt-3 max-w-xl text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
             Performance is a system, not a lucky streak
           </h2>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card sm:grid sm:grid-cols-2">
             {PILLARS.map((p) => (
               <article
                 key={p.title}
-                className="rounded-2xl border border-border bg-card/50 p-6 transition-colors hover:bg-card"
+                className="flex gap-4 border-b border-border p-5 last:border-b-0 transition-colors hover:bg-tg-panel sm:[&:nth-last-child(2)]:border-b-0"
               >
-                <span aria-hidden className="text-2xl">
+                <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-tg-panel text-xl">
                   {p.icon}
                 </span>
-                <h3 className="mt-4 text-lg font-semibold">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+                <div className="min-w-0">
+                  <h3 className="text-[17px] font-semibold">{p.title}</h3>
+                  <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{p.body}</p>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="process" className="relative px-5 py-20">
-        <div className="blob animate-blob left-[20%] top-0 h-[420px] w-[420px] bg-primary/20" />
-        <div className="relative mx-auto max-w-6xl">
-          <p className="mono-label text-primary-glow">Process</p>
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">From leaks to a stable curve</h2>
-          <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section id="process" className="relative px-5 py-16">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">Process</p>
+          <h2 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
+            From leaks to a stable curve
+          </h2>
+          <ol className="mt-8 overflow-hidden rounded-2xl border border-border bg-card">
             {STEPS.map((s) => (
-              <li key={s.n} className="rounded-2xl border border-border bg-card/50 p-6">
-                <span className="mono-label text-primary">{s.n}</span>
-                <h3 className="mt-3 text-lg font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+              <li key={s.n} className="flex gap-4 border-b border-border p-5 last:border-b-0">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-[13px] font-bold text-primary-foreground">
+                  {s.n}
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-[17px] font-semibold">{s.title}</h3>
+                  <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{s.body}</p>
+                </div>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      <section id="coaching" className="px-5 pb-24">
-        <div className="mx-auto max-w-6xl rounded-3xl border border-border bg-card/50 p-8 text-center sm:p-14">
-          <h2 className="text-3xl font-bold sm:text-4xl">Ready for consistent execution?</h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            Talk to a LHC Forex coach, get your trading audit and leave with a plan built for
+      <section id="proof" className="px-5 py-16">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">Proof</p>
+          <h2 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
+            Real charts from the coaching desk
+          </h2>
+          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+            Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci
+            executed with the same rules we teach in 1-on-1 coaching.
+          </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {PROOF.map((p) => (
+              <figure
+                key={p.src}
+                className="overflow-hidden rounded-2xl border border-border bg-card"
+              >
+                <img
+                  src={p.src}
+                  alt={`${p.pair} trade setup shared by LHC Forex on ${p.date}`}
+                  loading="lazy"
+                  className="w-full bg-secondary object-cover"
+                />
+                <figcaption className="p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-[15px] font-semibold">{p.pair}</span>
+                    <span className="text-[13px] text-muted-foreground">{p.date}</span>
+                  </div>
+                  <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{p.note}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="coaching" className="px-5 pb-20">
+        <div className="mx-auto max-w-6xl rounded-3xl border border-border bg-card p-8 text-center sm:p-14">
+          <h2 className="text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
+            Ready for consistent execution?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+            Send a DM on Instagram and a LHC Forex coach will answer with your next step toward
             long-term financial growth.
           </p>
           <a
-            href="#contact"
-            className="mt-8 inline-block rounded-md bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-glow"
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
           >
-            Book your audit
+            <InstagramIcon className="h-5 w-5" />
+            @thelordharvey
           </a>
         </div>
       </section>
 
       <footer className="border-t border-border px-5 py-8">
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
-          <p className="mono-label truncate text-muted-foreground">
-            LHC Forex — Coaching group
-          </p>
-          <p className="mono-label shrink-0 text-muted-foreground">
-            Trading involves risk of loss
-          </p>
+          <p className="truncate text-[13px] text-muted-foreground">LHC Forex — Coaching group</p>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="shrink-0 text-[13px] text-muted-foreground transition-colors hover:text-primary"
+          >
+            Instagram · @thelordharvey
+          </a>
         </div>
       </footer>
     </div>
