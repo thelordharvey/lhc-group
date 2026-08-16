@@ -92,15 +92,17 @@ function XIcon({ className }: { className?: string }) {
   );
 }
 
+type NavLink = { label: string; href: string; isLink?: boolean };
+
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { label: "Method", href: "#method" },
     { label: "Process", href: "#process" },
     { label: "Proof", href: "/proof", isLink: true },
     { label: "Coaching", href: "#coaching" },
-  ] as const;
+  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
