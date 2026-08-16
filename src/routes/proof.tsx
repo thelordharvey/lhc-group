@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import chart1 from "@/assets/XAUUSD_2026-07-30_17-52-32_7a2b3.png";
 import chart2 from "@/assets/XAUUSD_2026-02-05_20-12-27_59526.png";
@@ -66,30 +67,106 @@ function InstagramIcon({ className }: { className?: string }) {
   );
 }
 
+function MenuIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <path d="M6 6l12 12M18 6l-12 12" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function ProofPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { label: "Home", href: "/", isLink: true },
+    { label: "Method", href: "/#method", isLink: true },
+    { label: "Process", href: "/#process", isLink: true },
+    { label: "Coaching", href: "/#coaching", isLink: true },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
-        <div className="mx-auto max-w-6xl px-5 py-3">
-          <div className="flex items-center justify-between gap-4">
-            <Link to="/" aria-label="LHC Forex home" className="flex items-center">
-              <img
-                src={logoUrl}
-                alt="LHC Forex logo"
-                className="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
-              />
-            </Link>
+      <nav className="fixed inset-x-0 top-0 z-50 px-5 pt-4">
+        <div className="mx-auto grid max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-3 sm:flex sm:flex-wrap sm:justify-between">
+          <Link
+            to="/"
+            aria-label="LHC Forex home"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-card/90 shadow-lg backdrop-blur-xl"
+          >
+            <img
+              src={logoUrl}
+              alt="LHC Forex logo"
+              className="h-8 w-8 rounded-full object-cover"
+            />
+          </Link>
+
+          <div className="hidden rounded-2xl border border-border bg-card/90 p-1.5 shadow-lg backdrop-blur-xl md:flex">
+            <ul className="flex gap-1">
+              {navLinks.map((l) => (
+                <li key={l.label}>
+                  <Link
+                    to={l.href as "/"}
+                    className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex items-center justify-end gap-2">
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer noopener"
-              className="flex shrink-0 items-center gap-2 rounded-full bg-primary px-4 py-2 text-[15px] font-medium text-primary-foreground transition-colors hover:bg-primary-glow"
+              className="flex shrink-0 items-center gap-2 rounded-2xl border border-border bg-card/90 px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel"
             >
               <InstagramIcon className="h-4 w-4" />
-              Contact
+              <span className="hidden sm:inline">Contact</span>
+              <span className="sm:hidden">DM</span>
             </a>
+
+            <button
+              type="button"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((v) => !v)}
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-card/90 text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel md:hidden"
+            >
+              {menuOpen ? <XIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
+            </button>
           </div>
         </div>
+
+        {menuOpen && (
+          <div className="mx-auto mt-3 max-w-6xl md:hidden">
+            <div className="rounded-2xl border border-border bg-card/95 p-2 shadow-xl backdrop-blur-xl">
+              <ul className="grid gap-1">
+                {navLinks.map((l) => (
+                  <li key={l.label}>
+                    <Link
+                      to={l.href as "/"}
+                      onClick={() => setMenuOpen(false)}
+                      className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </nav>
 
       <main className="px-5 pt-32 pb-20">
