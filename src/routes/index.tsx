@@ -76,6 +76,22 @@ function InstagramIcon({ className }: { className?: string }) {
   );
 }
 
+function MenuIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <path d="M6 6l12 12M18 6l-12 12" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
