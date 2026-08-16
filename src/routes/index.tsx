@@ -126,7 +126,7 @@ function Index() {
                 l.isLink ? (
                   <li key={l.label}>
                     <Link
-                      to={l.href}
+                      to="/proof"
                       className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
                     >
                       {l.label}
