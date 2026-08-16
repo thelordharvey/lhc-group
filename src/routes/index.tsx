@@ -93,10 +93,19 @@ function XIcon({ className }: { className?: string }) {
 }
 
 function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { label: "Method", href: "#method" },
+    { label: "Process", href: "#process" },
+    { label: "Proof", href: "/proof", isLink: true },
+    { label: "Coaching", href: "#coaching" },
+  ] as const;
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed inset-x-0 top-0 z-50 px-5 pt-4">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+        <div className="mx-auto grid max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-3 sm:flex sm:flex-wrap sm:justify-between">
           <a
             href="#top"
             aria-label="LHC Forex home"
@@ -111,23 +120,23 @@ function Index() {
 
           <div className="hidden rounded-2xl border border-border bg-card/90 p-1.5 shadow-lg backdrop-blur-xl md:flex">
             <ul className="flex gap-1">
-              {["Method", "Process", "Proof", "Coaching"].map((l) =>
-                l === "Proof" ? (
-                  <li key={l}>
+              {navLinks.map((l) =>
+                l.isLink ? (
+                  <li key={l.label}>
                     <Link
-                      to="/proof"
+                      to={l.href}
                       className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
                     >
-                      {l}
+                      {l.label}
                     </Link>
                   </li>
                 ) : (
-                  <li key={l}>
+                  <li key={l.label}>
                     <a
-                      href={`#${l.toLowerCase()}`}
+                      href={l.href}
                       className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
                     >
-                      {l}
+                      {l.label}
                     </a>
                   </li>
                 ),
@@ -135,17 +144,61 @@ function Index() {
             </ul>
           </div>
 
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="flex shrink-0 items-center gap-2 rounded-2xl border border-border bg-card/90 px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel"
-          >
-            <InstagramIcon className="h-4 w-4" />
-            Contact
-          </a>
+          <div className="flex items-center justify-end gap-2">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="flex shrink-0 items-center gap-2 rounded-2xl border border-border bg-card/90 px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel"
+            >
+              <InstagramIcon className="h-4 w-4" />
+              <span className="hidden sm:inline">Contact</span>
+              <span className="sm:hidden">DM</span>
+            </a>
+
+            <button
+              type="button"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((v) => !v)}
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-card/90 text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel md:hidden"
+            >
+              {menuOpen ? <XIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
 
+        {menuOpen && (
+          <div className="mx-auto mt-3 max-w-6xl md:hidden">
+            <div className="rounded-2xl border border-border bg-card/95 p-2 shadow-xl backdrop-blur-xl">
+              <ul className="grid gap-1">
+                {navLinks.map((l) =>
+                  l.isLink ? (
+                    <li key={l.label}>
+                      <Link
+                        to={l.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ) : (
+                    <li key={l.label}>
+                      <a
+                        href={l.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
+                      >
+                        {l.label}
+                      </a>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
+          </div>
+        )}
       </nav>
 
       <header id="top" className="relative overflow-hidden px-5 pt-40 pb-16">
