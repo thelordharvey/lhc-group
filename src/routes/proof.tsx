@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import chart1 from "@/assets/XAUUSD_2026-07-30_17-52-32_7a2b3.png.asset.json";
-import chart2 from "@/assets/XAUUSD_2026-02-05_20-12-27_59526.png.asset.json";
-import chart3 from "@/assets/XAUUSD_2026-02-09_14-52-45_4afeb.png.asset.json";
-import chart4 from "@/assets/XAUUSD_2026-03-03_10-37-25_412f4.png.asset.json";
-import logoAsset from "@/assets/lhc-logo.png.asset.json";
+import chart1 from "@/assets/XAUUSD_2026-07-30_17-52-32_7a2b3.png";
+import chart2 from "@/assets/XAUUSD_2026-02-05_20-12-27_59526.png";
+import chart3 from "@/assets/XAUUSD_2026-02-09_14-52-45_4afeb.png";
+import chart4 from "@/assets/XAUUSD_2026-03-03_10-37-25_412f4.png";
+import logoUrl from "@/assets/lhc-logo.png";
 
 export const Route = createFileRoute("/proof")({
   head: () => ({
@@ -31,25 +31,25 @@ const INSTAGRAM_URL =
 
 const PROOF = [
   {
-    src: chart1.url,
+    src: chart1,
     pair: "XAU/USD · 15m",
     date: "Jul 30, 2026",
     note: "Trend SP/DM setup aligned with POC and Fibonacci — extreme entry, clean expansion.",
   },
   {
-    src: chart2.url,
+    src: chart2,
     pair: "XAU/USD · 5m",
     date: "Feb 05, 2026",
     note: "Last orderblock with imbalance, liquidity swept both sides before the move.",
   },
   {
-    src: chart3.url,
+    src: chart3,
     pair: "XAU/USD · 5m",
     date: "Feb 09, 2026",
     note: "5-star orderblock on trend, stop under the lowest low, target on resting liquidity.",
   },
   {
-    src: chart4.url,
+    src: chart4,
     pair: "XAU/USD · 5m",
     date: "Mar 03, 2026",
     note: "Higher timeframe bias respected — short from supply straight into the $$$ level.",
@@ -74,7 +74,7 @@ function ProofPage() {
           <div className="flex items-center justify-between gap-4">
             <Link to="/" aria-label="LHC Forex home" className="flex items-center">
               <img
-                src={logoAsset.url}
+                src={logoUrl}
                 alt="LHC Forex logo"
                 className="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
               />

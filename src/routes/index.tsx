@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/lhc-logo.png.asset.json";
+import logoUrl from "@/assets/lhc-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -86,7 +86,7 @@ function Index() {
             className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-card/90 shadow-lg backdrop-blur-xl"
           >
             <img
-              src={logoAsset.url}
+              src={logoUrl}
               alt="LHC Forex logo"
               className="h-8 w-8 rounded-full object-cover"
             />
