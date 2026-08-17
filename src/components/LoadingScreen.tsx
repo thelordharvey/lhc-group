@@ -66,7 +66,7 @@ export function LoadingScreen() {
       <div className="flex flex-col items-center gap-8 px-6">
         <div className="text-center">
           <h1
-            className="text-7xl font-bold tracking-[-0.06em] text-transparent"
+            className="text-7xl font-bold tracking-[0.22em] text-transparent"
             style={{
               backgroundImage:
                 "linear-gradient(90deg, #60a5fa, #3b82f6, #2563eb, #60a5fa)",
