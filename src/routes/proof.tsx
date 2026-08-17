@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import chart1 from "@/assets/XAUUSD_2026-07-30_17-52-32_7a2b3.png";
-import chart2 from "@/assets/XAUUSD_2026-02-05_20-12-27_59526.png";
-import chart3 from "@/assets/XAUUSD_2026-02-09_14-52-45_4afeb.png";
-import chart4 from "@/assets/XAUUSD_2026-03-03_10-37-25_412f4.png";
+import chart1 from "@/assets/XAUUSD_2026-08-11_15-24-32_eee0b.png";
+import chart2 from "@/assets/XAUUSD_2026-08-12_15-59-19_5825b.png";
+import chart3 from "@/assets/xauusd-live-desk.jpeg";
+
 import logoUrl from "@/assets/lhc-logo.png";
 
 export const Route = createFileRoute("/proof")({
