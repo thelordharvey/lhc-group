@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import chart1 from "@/assets/XAUUSD_2026-07-30_17-52-32_7a2b3.png";
-import chart2 from "@/assets/XAUUSD_2026-02-05_20-12-27_59526.png";
-import chart3 from "@/assets/XAUUSD_2026-02-09_14-52-45_4afeb.png";
-import chart4 from "@/assets/XAUUSD_2026-03-03_10-37-25_412f4.png";
+import chart1 from "@/assets/XAUUSD_2026-08-11_15-24-32_eee0b.png";
+import chart2 from "@/assets/XAUUSD_2026-08-12_15-59-19_5825b.png";
+import chart3 from "@/assets/xauusd-live-desk.jpeg";
+
 import logoUrl from "@/assets/lhc-logo.png";
 
 export const Route = createFileRoute("/proof")({
@@ -34,28 +34,23 @@ const PROOF = [
   {
     src: chart1,
     pair: "XAU/USD · 15m",
-    date: "Jul 30, 2026",
-    note: "Trend SP/DM setup aligned with POC and Fibonacci — extreme entry, clean expansion.",
+    date: "Aug 11, 2026",
+    note: "Fibonacci retracement into the 0.62–0.782 zone, entry from the orderblock with the low as invalidation.",
   },
   {
     src: chart2,
-    pair: "XAU/USD · 5m",
-    date: "Feb 05, 2026",
-    note: "Last orderblock with imbalance, liquidity swept both sides before the move.",
+    pair: "XAU/USD · 15m",
+    date: "Aug 12, 2026",
+    note: "Two clean Fib setups back to back — long from discount, then short from the premium supply block.",
   },
   {
     src: chart3,
     pair: "XAU/USD · 5m",
-    date: "Feb 09, 2026",
-    note: "5-star orderblock on trend, stop under the lowest low, target on resting liquidity.",
-  },
-  {
-    src: chart4,
-    pair: "XAU/USD · 5m",
-    date: "Mar 03, 2026",
-    note: "Higher timeframe bias respected — short from supply straight into the $$$ level.",
+    date: "Jun 11, 2026",
+    note: "Live desk execution: last orderblock on trend, stop under the lowest low, expansion into resting liquidity.",
   },
 ];
+
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
