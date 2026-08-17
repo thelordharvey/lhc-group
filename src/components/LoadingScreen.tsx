@@ -5,39 +5,46 @@ export function LoadingScreen() {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
+    let raf = 0;
     let current = 0;
-    let raf: number;
+    let loaded = document.readyState === "complete";
     let completeTimeout: ReturnType<typeof setTimeout>;
-
-    const advance = () => {
-      const remaining = 100 - current;
-      const step = Math.max(0.5, remaining * 0.06);
-      current = Math.min(100, current + step);
-      setProgress(current);
-
-      if (current < 100) {
-        raf = requestAnimationFrame(() => {
-          setTimeout(advance, 60);
-        });
-      } else {
-        completeTimeout = setTimeout(() => setHidden(true), 400);
-      }
-    };
+    const start = performance.now();
+    const MIN_DURATION = 1400; // never finish faster than this, so the bar is visible
 
     const onLoad = () => {
-      cancelAnimationFrame(raf);
-      current = 100;
-      setProgress(100);
-      completeTimeout = setTimeout(() => setHidden(true), 400);
+      loaded = true;
+    };
+    window.addEventListener("load", onLoad);
+
+    const assetProgress = () => {
+      const imgs = Array.from(document.images);
+      if (!imgs.length) return loaded ? 1 : 0;
+      return imgs.filter((i) => i.complete).length / imgs.length;
     };
 
-    advance();
+    const tick = (now: number) => {
+      const elapsed = now - start;
+      const timeRatio = Math.min(1, elapsed / MIN_DURATION);
+      const ready = loaded && assetProgress() >= 1;
+      // target rises with real time + real asset completion, capped until ready
+      const target = ready
+        ? 100
+        : Math.min(95, timeRatio * 70 + assetProgress() * 25);
 
-    if (document.readyState === "complete") {
-      onLoad();
-    } else {
-      window.addEventListener("load", onLoad);
-    }
+      current += (target - current) * 0.12;
+      if (target - current < 0.4) current = target;
+      setProgress(current);
+
+      if (current >= 99.9) {
+        setProgress(100);
+        completeTimeout = setTimeout(() => setHidden(true), 450);
+        return;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
 
     return () => {
       cancelAnimationFrame(raf);
@@ -45,6 +52,7 @@ export function LoadingScreen() {
       window.removeEventListener("load", onLoad);
     };
   }, []);
+
 
   if (hidden) return null;
 
