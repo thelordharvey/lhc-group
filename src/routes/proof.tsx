@@ -34,28 +34,23 @@ const PROOF = [
   {
     src: chart1,
     pair: "XAU/USD · 15m",
-    date: "Jul 30, 2026",
-    note: "Trend SP/DM setup aligned with POC and Fibonacci — extreme entry, clean expansion.",
+    date: "Aug 11, 2026",
+    note: "Fibonacci retracement into the 0.62–0.782 zone, entry from the orderblock with the low as invalidation.",
   },
   {
     src: chart2,
-    pair: "XAU/USD · 5m",
-    date: "Feb 05, 2026",
-    note: "Last orderblock with imbalance, liquidity swept both sides before the move.",
+    pair: "XAU/USD · 15m",
+    date: "Aug 12, 2026",
+    note: "Two clean Fib setups back to back — long from discount, then short from the premium supply block.",
   },
   {
     src: chart3,
     pair: "XAU/USD · 5m",
-    date: "Feb 09, 2026",
-    note: "5-star orderblock on trend, stop under the lowest low, target on resting liquidity.",
-  },
-  {
-    src: chart4,
-    pair: "XAU/USD · 5m",
-    date: "Mar 03, 2026",
-    note: "Higher timeframe bias respected — short from supply straight into the $$$ level.",
+    date: "Jun 11, 2026",
+    note: "Live desk execution: last orderblock on trend, stop under the lowest low, expansion into resting liquidity.",
   },
 ];
+
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
