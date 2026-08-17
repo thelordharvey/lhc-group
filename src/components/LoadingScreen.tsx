@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import logoUrl from "@/assets/lhc-logo.png";
 
 export function LoadingScreen() {
   const [progress, setProgress] = useState(0);
@@ -56,21 +55,22 @@ export function LoadingScreen() {
         progress === 100 ? "opacity-0" : "opacity-100"
       }`}
     >
-      <div className="flex flex-col items-center gap-6 px-6">
-        <div className="relative">
-          <div className="absolute inset-0 animate-ping rounded-full bg-primary/20" />
-          <img
-            src={logoUrl}
-            alt="LHC"
-            className="relative h-20 w-20 rounded-full border-2 border-primary/30 object-cover shadow-[0_0_40px_rgba(59,130,246,0.25)]"
-          />
-        </div>
-
+      <div className="flex flex-col items-center gap-8 px-6">
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-[-0.04em] text-foreground">
+          <h1
+            className="text-7xl font-bold tracking-[-0.06em] text-transparent"
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, #60a5fa, #3b82f6, #2563eb, #60a5fa)",
+              backgroundSize: "200% 100%",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              animation: "lhc-shimmer 2s linear infinite",
+            }}
+          >
             LHC
           </h1>
-          <p className="mt-1 text-[13px] font-medium uppercase tracking-[2px] text-primary">
+          <p className="mt-2 text-[13px] font-medium uppercase tracking-[3px] text-primary">
             Forex
           </p>
         </div>
@@ -88,6 +88,13 @@ export function LoadingScreen() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes lhc-shimmer {
+          0% { background-position: 100% 0; }
+          100% { background-position: -100% 0; }
+        }
+      `}</style>
     </div>
   );
 }
