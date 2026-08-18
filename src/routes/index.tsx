@@ -94,13 +94,50 @@ function XIcon({ className }: { className?: string }) {
 
 type NavLink = { label: string; href: string; isLink?: boolean };
 
+const COURSES = [
+  {
+    id: "1on1",
+    title: "1-on-1 Coaching Program",
+    price: null,
+    features: [
+      "Personalized trading plan built around your schedule",
+      "Daily trade recap call with your coach",
+      "Risk and psychology review every session",
+      "Direct feedback on your journal and setups",
+    ],
+    cta: "Apply for 1-on-1",
+  },
+  {
+    id: "strategy",
+    title: "Tailored Strategy Access",
+    price: null,
+    features: [
+      "Strategy matched to your daily routine",
+      "Private group with daily trade recaps",
+      "Curated market information and setups",
+      "Community accountability and Q&A",
+    ],
+    cta: "Join the private group",
+  },
+];
+
+function CheckIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+      <path d="M5 12l5 5L20 7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [coursesOpen, setCoursesOpen] = useState(false);
 
   const navLinks: NavLink[] = [
     { label: "Method", href: "#method" },
     { label: "Process", href: "#process" },
     { label: "Proof", href: "/proof", isLink: true },
+    { label: "Courses", href: "#courses" },
     { label: "Coaching", href: "#coaching" },
   ];
 
