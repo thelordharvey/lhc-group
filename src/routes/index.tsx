@@ -331,6 +331,60 @@ function Index() {
         </div>
       </section>
 
+      <section id="courses" className="relative px-5 py-16">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">Courses</p>
+          <h2 className="mt-3 max-w-xl text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
+            Choose how you want to level up
+          </h2>
+          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+            Two coaching options built for traders who want structure, accountability and a process they can repeat.
+          </p>
+
+          <button
+            type="button"
+            onClick={() => setCoursesOpen((v) => !v)}
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
+            aria-expanded={coursesOpen}
+          >
+            {coursesOpen ? "Hide courses" : "View courses"}
+            <span className="grid h-5 w-5 place-items-center rounded-full bg-primary-foreground/20 text-[11px]">
+              {coursesOpen ? "−" : "+"}
+            </span>
+          </button>
+
+          {coursesOpen && (
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {COURSES.map((c) => (
+                <article
+                  key={c.id}
+                  className="rounded-2xl border border-border bg-card p-6 transition-colors hover:bg-tg-panel sm:p-8"
+                >
+                  <h3 className="text-xl font-bold">{c.title}</h3>
+                  <ul className="mt-5 grid gap-3">
+                    {c.features.map((f) => (
+                      <li key={f} className="flex items-start gap-3 text-[15px] text-muted-foreground">
+                        <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={INSTAGRAM_URL}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-secondary px-6 py-3 text-[15px] font-semibold text-secondary-foreground transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
+                  >
+                    <InstagramIcon className="h-4 w-4" />
+                    {c.cta}
+                  </a>
+                </article>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
       <section id="coaching" className="px-5 pb-20">
         <div className="mx-auto max-w-6xl rounded-3xl border border-border bg-card p-8 text-center sm:p-14">
           <h2 className="text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
