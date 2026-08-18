@@ -85,6 +85,8 @@ function ProofPage() {
     { label: "Home", href: "/", isLink: true },
     { label: "Method", href: "/#method", isLink: true },
     { label: "Process", href: "/#process", isLink: true },
+    { label: "Proof", href: "/proof", isLink: true },
+    { label: "Courses", href: "/#courses", isLink: true },
     { label: "Coaching", href: "/#coaching", isLink: true },
   ];
 
