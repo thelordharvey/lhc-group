@@ -365,7 +365,7 @@ function Index() {
                   <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
                     <span className="text-2xl font-bold text-primary">${c.price}</span>
                     {c.monthlyPrice && (
-                      <span className="text-[14px] text-muted-foreground">
+                      <span className="text-[14px] text-white">
                         or ${c.monthlyPrice}/month
                       </span>
                     )}
