@@ -98,7 +98,7 @@ const COURSES = [
   {
     id: "1on1",
     title: "1-on-1 Coaching Program",
-    price: null,
+    price: 750,
     features: [
       "Personalized trading plan built around your schedule",
       "Daily trade recap call with your coach",
@@ -110,7 +110,7 @@ const COURSES = [
   {
     id: "strategy",
     title: "Tailored Strategy Access",
-    price: null,
+    price: 350,
     features: [
       "Strategy matched to your daily routine",
       "Private group with daily trade recaps",
@@ -361,6 +361,7 @@ function Index() {
                   className="rounded-2xl border border-border bg-card p-6 transition-colors hover:bg-tg-panel sm:p-8"
                 >
                   <h3 className="text-xl font-bold">{c.title}</h3>
+                  <p className="mt-2 text-2xl font-bold text-primary">${c.price}</p>
                   <ul className="mt-5 grid gap-3">
                     {c.features.map((f) => (
                       <li key={f} className="flex items-start gap-3 text-[15px] text-muted-foreground">
