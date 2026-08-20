@@ -99,6 +99,7 @@ const COURSES = [
     id: "1on1",
     title: "1-on-1 Coaching Program",
     price: 750,
+    monthlyPrice: 98.88,
     features: [
       "Personalized trading plan built around your schedule",
       "Daily trade recap call with your coach",
@@ -361,7 +362,14 @@ function Index() {
                   className="rounded-2xl border border-border bg-card p-6 transition-colors hover:bg-tg-panel sm:p-8"
                 >
                   <h3 className="text-xl font-bold">{c.title}</h3>
-                  <p className="mt-2 text-2xl font-bold text-primary">${c.price}</p>
+                  <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <span className="text-2xl font-bold text-primary">${c.price}</span>
+                    {c.monthlyPrice && (
+                      <span className="text-[14px] text-muted-foreground">
+                        or ${c.monthlyPrice}/month
+                      </span>
+                    )}
+                  </div>
                   <ul className="mt-5 grid gap-3">
                     {c.features.map((f) => (
                       <li key={f} className="flex items-start gap-3 text-[15px] text-muted-foreground">
