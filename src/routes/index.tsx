@@ -158,8 +158,8 @@ function Index() {
             />
           </a>
 
-          <div className="hidden rounded-2xl border border-border bg-card/90 p-1.5 shadow-lg backdrop-blur-xl md:flex">
-            <ul className="flex gap-1">
+          <div className="order-last col-span-3 flex max-w-full overflow-x-auto rounded-2xl border border-border bg-card/90 p-1.5 shadow-lg backdrop-blur-xl [-ms-overflow-style:none] [scrollbar-width:none] sm:order-none sm:col-span-1 [&::-webkit-scrollbar]:hidden">
+            <ul className="flex gap-1 whitespace-nowrap">
               {navLinks.map((l) =>
                 l.isLink ? (
                   <li key={l.label}>
@@ -201,7 +201,7 @@ function Index() {
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((v) => !v)}
-              className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-card/90 text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel md:hidden"
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-card/90 text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel hidden"
             >
               {menuOpen ? <XIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
             </button>
