@@ -158,7 +158,7 @@ function Index() {
             />
           </a>
 
-          <div className="order-last col-span-3 flex max-w-full overflow-x-auto rounded-2xl border border-border bg-card/90 p-1.5 shadow-lg backdrop-blur-xl [-ms-overflow-style:none] [scrollbar-width:none] sm:order-none sm:col-span-1 [&::-webkit-scrollbar]:hidden">
+          <div className="order-last col-span-3 flex max-w-full overflow-x-auto rounded-2xl liquid-glass liquid-glass-sheen p-1.5 shadow-lg [-ms-overflow-style:none] [scrollbar-width:none] sm:order-none sm:col-span-1 [&::-webkit-scrollbar]:hidden">
             <ul className="flex gap-1 whitespace-nowrap">
               {navLinks.map((l) =>
                 l.isLink ? (
@@ -189,7 +189,7 @@ function Index() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer noopener"
-              className="flex shrink-0 items-center gap-2 rounded-2xl border border-border bg-card/90 px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg backdrop-blur-xl transition-colors hover:brightness-125"
+              className="flex shrink-0 items-center gap-2 rounded-2xl liquid-glass liquid-glass-sheen px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg transition-colors hover:brightness-125"
             >
               <InstagramIcon className="h-4 w-4" />
               <span className="hidden sm:inline">Contact</span>
