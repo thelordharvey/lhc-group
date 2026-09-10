@@ -149,7 +149,7 @@ function Index() {
           <a
             href="#top"
             aria-label="LHC Forex home"
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-card/90 shadow-lg backdrop-blur-xl"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl liquid-glass liquid-glass-sheen shadow-lg"
           >
             <img
               src={logoUrl}
@@ -165,7 +165,7 @@ function Index() {
                   <li key={l.label}>
                     <Link
                       to="/proof"
-                      className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
+                      className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                     >
                       {l.label}
                     </Link>
@@ -174,7 +174,7 @@ function Index() {
                   <li key={l.label}>
                     <a
                       href={l.href}
-                      className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
+                      className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                     >
                       {l.label}
                     </a>
@@ -189,7 +189,7 @@ function Index() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer noopener"
-              className="flex shrink-0 items-center gap-2 rounded-2xl border border-border bg-card/90 px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel"
+              className="flex shrink-0 items-center gap-2 rounded-2xl border border-border bg-card/90 px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg backdrop-blur-xl transition-colors hover:brightness-125"
             >
               <InstagramIcon className="h-4 w-4" />
               <span className="hidden sm:inline">Contact</span>
@@ -201,7 +201,7 @@ function Index() {
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((v) => !v)}
-              className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-card/90 text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel hidden"
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl liquid-glass liquid-glass-sheen text-foreground shadow-lg transition-colors hover:brightness-125 hidden"
             >
               {menuOpen ? <XIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
             </button>
@@ -210,7 +210,7 @@ function Index() {
 
         {menuOpen && (
           <div className="mx-auto mt-3 max-w-6xl md:hidden">
-            <div className="rounded-2xl border border-border bg-card/95 p-2 shadow-xl backdrop-blur-xl">
+            <div className="rounded-2xl liquid-glass liquid-glass-sheen p-2 shadow-xl">
               <ul className="grid gap-1">
                 {navLinks.map((l) =>
                   l.isLink ? (
@@ -218,7 +218,7 @@ function Index() {
                       <Link
                         to="/proof"
                         onClick={() => setMenuOpen(false)}
-                        className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
+                        className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                       >
                         {l.label}
                       </Link>
@@ -228,7 +228,7 @@ function Index() {
                       <a
                         href={l.href}
                         onClick={() => setMenuOpen(false)}
-                        className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
+                        className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                       >
                         {l.label}
                       </a>
@@ -295,7 +295,7 @@ function Index() {
             {PILLARS.map((p) => (
               <article
                 key={p.title}
-                className="flex gap-4 border-b border-border p-5 last:border-b-0 transition-colors hover:bg-tg-panel sm:[&:nth-last-child(2)]:border-b-0"
+                className="flex gap-4 border-b border-border p-5 last:border-b-0 transition-colors hover:brightness-125 sm:[&:nth-last-child(2)]:border-b-0"
               >
                 <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-tg-panel text-xl">
                   {p.icon}
@@ -359,7 +359,7 @@ function Index() {
               {COURSES.map((c) => (
                 <article
                   key={c.id}
-                  className="rounded-2xl border border-border bg-card p-6 transition-colors hover:bg-tg-panel sm:p-8"
+                  className="rounded-2xl border border-border bg-card p-6 transition-colors hover:brightness-125 sm:p-8"
                 >
                   <h3 className="text-xl font-bold">{c.title}</h3>
                   <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">

@@ -97,7 +97,7 @@ function ProofPage() {
           <Link
             to="/"
             aria-label="LHC Forex home"
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-card/90 shadow-lg backdrop-blur-xl"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl liquid-glass liquid-glass-sheen shadow-lg"
           >
             <img
               src={logoUrl}
@@ -112,7 +112,7 @@ function ProofPage() {
                 <li key={l.label}>
                   <Link
                     to={l.href as "/"}
-                    className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
+                    className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                   >
                     {l.label}
                   </Link>
@@ -126,7 +126,7 @@ function ProofPage() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer noopener"
-              className="flex shrink-0 items-center gap-2 rounded-2xl border border-border bg-card/90 px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel"
+              className="flex shrink-0 items-center gap-2 rounded-2xl border border-border bg-card/90 px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg backdrop-blur-xl transition-colors hover:brightness-125"
             >
               <InstagramIcon className="h-4 w-4" />
               <span className="hidden sm:inline">Contact</span>
@@ -138,7 +138,7 @@ function ProofPage() {
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((v) => !v)}
-              className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-border bg-card/90 text-foreground shadow-lg backdrop-blur-xl transition-colors hover:bg-tg-panel hidden"
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl liquid-glass liquid-glass-sheen text-foreground shadow-lg transition-colors hover:brightness-125 hidden"
             >
               {menuOpen ? <XIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
             </button>
@@ -147,14 +147,14 @@ function ProofPage() {
 
         {menuOpen && (
           <div className="mx-auto mt-3 max-w-6xl md:hidden">
-            <div className="rounded-2xl border border-border bg-card/95 p-2 shadow-xl backdrop-blur-xl">
+            <div className="rounded-2xl liquid-glass liquid-glass-sheen p-2 shadow-xl">
               <ul className="grid gap-1">
                 {navLinks.map((l) => (
                   <li key={l.label}>
                     <Link
                       to={l.href as "/"}
                       onClick={() => setMenuOpen(false)}
-                      className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:bg-tg-panel hover:text-foreground"
+                      className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                     >
                       {l.label}
                     </Link>
