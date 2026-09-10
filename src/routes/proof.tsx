@@ -186,7 +186,7 @@ function ProofPage() {
                   src={p.src}
                   alt={`${p.pair} trade setup shared by LHC Forex on ${p.date}`}
                   loading="lazy"
-                  className="glass-btn w-full bg-secondary object-cover"
+                  className="w-full bg-secondary object-cover"
                 />
                 <figcaption className="p-4">
                   <div className="flex items-center justify-between gap-3">

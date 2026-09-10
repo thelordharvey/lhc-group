@@ -242,7 +242,7 @@ function Index() {
       </nav>
 
       <header id="top" className="relative overflow-hidden px-5 pt-40 pb-16">
-        <div className="glass-btn blob animate-blob left-[-160px] top-[-140px] h-[540px] w-[540px] bg-primary/20" />
+        <div className="blob animate-blob left-[-160px] top-[-140px] h-[540px] w-[540px] bg-primary/20" />
         <div className="relative mx-auto max-w-3xl text-center">
           <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">
             Forex coaching group
@@ -319,7 +319,7 @@ function Index() {
           <ol className="mt-8 overflow-hidden rounded-2xl liquid-glass liquid-glass-sheen">
             {STEPS.map((s) => (
               <li key={s.n} className="flex gap-4 border-b border-border p-5 last:border-b-0">
-                <span className="glass-btn grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-[13px] font-bold text-primary-foreground">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-[13px] font-bold text-primary-foreground">
                   {s.n}
                 </span>
                 <div className="min-w-0">
@@ -349,7 +349,7 @@ function Index() {
             aria-expanded={coursesOpen}
           >
             {coursesOpen ? "Hide courses" : "View courses"}
-            <span className="glass-btn grid h-5 w-5 place-items-center rounded-full bg-primary-foreground/20 text-[11px]">
+            <span className="grid h-5 w-5 place-items-center rounded-full bg-primary-foreground/20 text-[11px]">
               {coursesOpen ? "−" : "+"}
             </span>
           </button>
