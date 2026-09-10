@@ -291,7 +291,7 @@ function Index() {
           <h2 className="mt-3 max-w-xl text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
             Performance is a system, not a lucky streak
           </h2>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card sm:grid sm:grid-cols-2">
+          <div className="mt-8 overflow-hidden rounded-2xl liquid-glass liquid-glass-sheen sm:grid sm:grid-cols-2">
             {PILLARS.map((p) => (
               <article
                 key={p.title}
@@ -316,7 +316,7 @@ function Index() {
           <h2 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
             From leaks to a stable curve
           </h2>
-          <ol className="mt-8 overflow-hidden rounded-2xl border border-border bg-card">
+          <ol className="mt-8 overflow-hidden rounded-2xl liquid-glass liquid-glass-sheen">
             {STEPS.map((s) => (
               <li key={s.n} className="flex gap-4 border-b border-border p-5 last:border-b-0">
                 <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-[13px] font-bold text-primary-foreground">
@@ -359,7 +359,7 @@ function Index() {
               {COURSES.map((c) => (
                 <article
                   key={c.id}
-                  className="rounded-2xl border border-border bg-card p-6 transition-colors hover:brightness-125 sm:p-8"
+                  className="rounded-2xl liquid-glass liquid-glass-sheen p-6 transition-colors hover:brightness-125 sm:p-8"
                 >
                   <h3 className="text-xl font-bold">{c.title}</h3>
                   <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -395,7 +395,7 @@ function Index() {
       </section>
 
       <section id="coaching" className="px-5 pb-20">
-        <div className="mx-auto max-w-6xl rounded-3xl border border-border bg-card p-8 text-center sm:p-14">
+        <div className="mx-auto max-w-6xl rounded-3xl liquid-glass liquid-glass-sheen p-8 text-center sm:p-14">
           <h2 className="text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
             Ready for consistent execution?
           </h2>
