@@ -180,7 +180,7 @@ function ProofPage() {
             {PROOF.map((p) => (
               <figure
                 key={p.src}
-                className="overflow-hidden rounded-2xl border border-border bg-card"
+                className="overflow-hidden rounded-2xl liquid-glass liquid-glass-sheen"
               >
                 <img
                   src={p.src}
