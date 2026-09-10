@@ -242,7 +242,7 @@ function Index() {
       </nav>
 
       <header id="top" className="relative overflow-hidden px-5 pt-40 pb-16">
-        <div className="blob animate-blob left-[-160px] top-[-140px] h-[540px] w-[540px] bg-primary/20" />
+        <div className="glass-btn blob animate-blob left-[-160px] top-[-140px] h-[540px] w-[540px] bg-primary/20" />
         <div className="relative mx-auto max-w-3xl text-center">
           <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">
             Forex coaching group
@@ -262,14 +262,14 @@ function Index() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer noopener"
-              className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
+              className="glass-btn flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
             >
               <InstagramIcon className="h-5 w-5" />
               Message us on Instagram
             </a>
             <Link
               to="/proof"
-              className="rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
+              className="glass-btn rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
             >
               See the proof
             </Link>
@@ -319,7 +319,7 @@ function Index() {
           <ol className="mt-8 overflow-hidden rounded-2xl liquid-glass liquid-glass-sheen">
             {STEPS.map((s) => (
               <li key={s.n} className="flex gap-4 border-b border-border p-5 last:border-b-0">
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-[13px] font-bold text-primary-foreground">
+                <span className="glass-btn grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-[13px] font-bold text-primary-foreground">
                   {s.n}
                 </span>
                 <div className="min-w-0">
@@ -345,11 +345,11 @@ function Index() {
           <button
             type="button"
             onClick={() => setCoursesOpen((v) => !v)}
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
+            className="glass-btn mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
             aria-expanded={coursesOpen}
           >
             {coursesOpen ? "Hide courses" : "View courses"}
-            <span className="grid h-5 w-5 place-items-center rounded-full bg-primary-foreground/20 text-[11px]">
+            <span className="glass-btn grid h-5 w-5 place-items-center rounded-full bg-primary-foreground/20 text-[11px]">
               {coursesOpen ? "−" : "+"}
             </span>
           </button>
@@ -382,7 +382,7 @@ function Index() {
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-secondary px-6 py-3 text-[15px] font-semibold text-secondary-foreground transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
+                    className="glass-btn mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-secondary px-6 py-3 text-[15px] font-semibold text-secondary-foreground transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
                   >
                     <InstagramIcon className="h-4 w-4" />
                     {c.cta}
@@ -407,7 +407,7 @@ function Index() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noreferrer noopener"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
+            className="glass-btn mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
           >
             <InstagramIcon className="h-5 w-5" />
             @thelordharvey

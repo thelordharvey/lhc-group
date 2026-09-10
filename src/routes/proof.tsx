@@ -186,7 +186,7 @@ function ProofPage() {
                   src={p.src}
                   alt={`${p.pair} trade setup shared by LHC Forex on ${p.date}`}
                   loading="lazy"
-                  className="w-full bg-secondary object-cover"
+                  className="glass-btn w-full bg-secondary object-cover"
                 />
                 <figcaption className="p-4">
                   <div className="flex items-center justify-between gap-3">
@@ -201,7 +201,7 @@ function ProofPage() {
           <div className="mt-12 flex flex-wrap gap-3">
             <Link
               to="/"
-              className="rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
+              className="glass-btn rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
             >
               Back home
             </Link>
@@ -209,7 +209,7 @@ function ProofPage() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
+              className="glass-btn inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
             >
               <InstagramIcon className="h-5 w-5" />
               Message us on Instagram
