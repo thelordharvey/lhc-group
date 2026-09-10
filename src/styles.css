@@ -233,3 +233,29 @@
     transparent 60%
   );
 }
+
+@utility glass-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  backdrop-filter: blur(18px) saturate(170%) brightness(1.05);
+  border: 1px solid color-mix(in oklab, white 22%, transparent);
+  box-shadow:
+    0 8px 26px -10px oklch(0 0 0 / 0.55),
+    inset 0 1px 0 color-mix(in oklab, white 38%, transparent),
+    inset 0 -1px 0 color-mix(in oklab, black 18%, transparent);
+}
+
+.glass-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(
+    150deg,
+    color-mix(in oklab, white 26%, transparent) 0%,
+    color-mix(in oklab, white 6%, transparent) 42%,
+    transparent 70%
+  );
+}
