@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import logoUrl from "@/assets/lhc-logo.png";
+import { FaqChat } from "@/components/FaqChat";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -428,6 +429,7 @@ function Index() {
           </a>
         </div>
       </footer>
+      <FaqChat />
     </div>
   );
 }
