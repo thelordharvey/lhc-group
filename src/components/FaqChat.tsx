@@ -30,13 +30,13 @@ export function FaqChat() {
 
   const { messages, sendMessage, status, error } = useChat({
     transport: new DefaultChatTransport({
+      api: "/api/chat",
       // On static hosts like Netlify there is no server, so use the Lovable-hosted endpoint.
-      api:
-        typeof window !== "undefined" &&
-        !window.location.hostname.endsWith("lovable.app") &&
-        window.location.hostname !== "localhost"
-          ? "https://lhc-group.lovable.app/api/chat"
-          : "/api/chat",
+      fetch: (input, init) => {
+        const host = window.location.hostname;
+        const remote = !host.endsWith("lovable.app") && host !== "localhost";
+        return fetch(remote ? "https://lhc-group.lovable.app/api/chat" : input, init);
+      },
     }),
   });
 
