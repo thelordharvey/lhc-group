@@ -29,18 +29,25 @@ Rules:
 
 type ChatRequestBody = { messages?: unknown };
 
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, X-Lovable-AIG-Run-ID",
+};
+
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
+      OPTIONS: async () => new Response(null, { status: 204, headers: CORS_HEADERS }),
       POST: async ({ request }) => {
         const { messages } = (await request.json()) as ChatRequestBody;
         if (!Array.isArray(messages)) {
-          return new Response("Messages are required", { status: 400 });
+          return new Response("Messages are required", { status: 400, headers: CORS_HEADERS });
         }
 
         const lovableApiKey = process.env["LOVABLE_API_KEY"];
         if (!lovableApiKey) {
-          return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+          return new Response("Missing LOVABLE_API_KEY", { status: 500, headers: CORS_HEADERS });
         }
 
         const initialRunId = getLovableAiGatewayRunId(request);
@@ -74,11 +81,12 @@ export const Route = createFileRoute("/api/chat")({
         const response = result.toUIMessageStreamResponse({
           originalMessages: messages as UIMessage[],
           headers: getLovableAiGatewayResponseHeaders(undefined, {
+            ...CORS_HEADERS,
             ...(initialRunId ? { "X-Lovable-AIG-Run-ID": initialRunId } : {}),
           }),
         });
 
-        return withLovableAiGatewayRunIdHeader(response, runIdFetch);
+        return withLovableAiGatewayRunIdHeader(response, runIdFetch, CORS_HEADERS);
       },
     },
   },

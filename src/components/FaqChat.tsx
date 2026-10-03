@@ -29,7 +29,15 @@ export function FaqChat() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const { messages, sendMessage, status, error } = useChat({
-    transport: new DefaultChatTransport({ api: "/api/chat" }),
+    transport: new DefaultChatTransport({
+      // On static hosts like Netlify there is no server, so use the Lovable-hosted endpoint.
+      api:
+        typeof window !== "undefined" &&
+        !window.location.hostname.endsWith("lovable.app") &&
+        window.location.hostname !== "localhost"
+          ? "https://lhc-group.lovable.app/api/chat"
+          : "/api/chat",
+    }),
   });
 
   const isBusy = status === "submitted" || status === "streaming";
