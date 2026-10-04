@@ -32,7 +32,7 @@ type ChatRequestBody = { messages?: unknown };
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, X-Lovable-AIG-Run-ID",
+  "Access-Control-Allow-Headers": "Content-Type, X-Lovable-AIG-Run-ID, X-LHC-Language",
 };
 
 export const Route = createFileRoute("/api/chat")({
@@ -40,6 +40,7 @@ export const Route = createFileRoute("/api/chat")({
     handlers: {
       OPTIONS: async () => new Response(null, { status: 204, headers: CORS_HEADERS }),
       POST: async ({ request }) => {
+        const language = request.headers.get("X-LHC-Language") === "fr" ? "fr" : "en";
         const { messages } = (await request.json()) as ChatRequestBody;
         if (!Array.isArray(messages)) {
           return new Response("Messages are required", { status: 400, headers: CORS_HEADERS });
@@ -64,7 +65,7 @@ export const Route = createFileRoute("/api/chat")({
 
         const result = streamText({
           model: lovable.responses("openai/gpt-6-astra"),
-          system: SYSTEM_PROMPT,
+           system: `${SYSTEM_PROMPT}\n\nRespond in ${language === "fr" ? "French" : "English"}, matching the visitor's selected site language.`,
           messages: await convertToModelMessages(messages as UIMessage[]),
           abortSignal: request.signal,
           providerOptions: {

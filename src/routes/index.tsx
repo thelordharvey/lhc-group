@@ -134,7 +134,7 @@ function CheckIcon({ className }: { className?: string }) {
 }
 
 function Index() {
-  const { t, language } = useSiteSettings();
+  const { t } = useSiteSettings();
   const [menuOpen, setMenuOpen] = useState(false);
   const [coursesOpen, setCoursesOpen] = useState(false);
 
@@ -250,10 +250,10 @@ function Index() {
         <div className="blob animate-blob left-[-160px] top-[-140px] h-[540px] w-[540px] bg-primary/20" />
         <div className="relative mx-auto max-w-3xl text-center">
           <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">
-            Forex coaching group
+             {t("Forex coaching group")}
           </p>
           <h1 className="mt-4 text-4xl font-bold leading-[1.05] tracking-[-0.03em] sm:text-6xl">
-            Trade with consistency.
+             {t("Trade with consistency.")}
             <br />
             <span className="text-primary">{t("Grow for the long term.") }</span>
           </h1>
@@ -268,13 +268,13 @@ function Index() {
               className="glass-btn flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
             >
               <InstagramIcon className="h-5 w-5" />
-              Message us on Instagram
+               {t("Message us on Instagram")}
             </a>
             <Link
               to="/proof"
               className="glass-btn rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
             >
-              See the proof
+               {t("See the proof")}
             </Link>
           </div>
           <dl className="mx-auto mt-12 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
@@ -292,7 +292,7 @@ function Index() {
         <div className="mx-auto max-w-6xl">
           <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("The method") }</p>
           <h2 className="mt-3 max-w-xl text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-            Performance is a system, not a lucky streak
+             {t("Performance is a system, not a lucky streak")}
           </h2>
           <div className="mt-8 overflow-hidden rounded-2xl liquid-glass liquid-glass-sheen sm:grid sm:grid-cols-2">
             {PILLARS.map((p) => (
@@ -317,7 +317,7 @@ function Index() {
         <div className="mx-auto max-w-6xl">
           <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("Process") }</p>
           <h2 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-            From leaks to a stable curve
+             {t("From leaks to a stable curve")}
           </h2>
           <ol className="mt-8 overflow-hidden rounded-2xl liquid-glass liquid-glass-sheen">
             {STEPS.map((s) => (
@@ -339,10 +339,10 @@ function Index() {
         <div className="mx-auto max-w-6xl">
           <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("Courses") }</p>
           <h2 className="mt-3 max-w-xl text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-            Choose how you want to level up
+             {t("Choose how you want to level up")}
           </h2>
           <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-            Two coaching options built for traders who want structure, accountability and a process they can repeat.
+             {t("Two coaching options built for traders who want structure, accountability and a process they can repeat.")}
           </p>
 
           <button
@@ -400,7 +400,7 @@ function Index() {
       <section id="coaching" className="px-5 pb-20">
         <div className="mx-auto max-w-6xl rounded-3xl liquid-glass liquid-glass-sheen p-8 text-center sm:p-14">
           <h2 className="text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-            Ready for consistent execution?
+             {t("Ready for consistent execution?")}
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
             {t("Send a DM on Instagram and a LHC Forex coach will answer with your next step toward long-term financial growth.")}

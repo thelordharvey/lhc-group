@@ -174,7 +174,7 @@ function ProofPage() {
         <div className="mx-auto max-w-6xl">
           <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("Proof") }</p>
           <h1 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-            Real charts from the coaching desk
+             {t("Real charts from the coaching desk")}
           </h1>
           <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
             {t("Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci executed with the same rules we teach in 1-on-1 coaching.")}
@@ -206,7 +206,7 @@ function ProofPage() {
               to="/"
               className="glass-btn rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
             >
-              Back home
+               {t("Back home")}
             </Link>
             <a
               href={INSTAGRAM_URL}
@@ -215,7 +215,7 @@ function ProofPage() {
               className="glass-btn inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
             >
               <InstagramIcon className="h-5 w-5" />
-              Message us on Instagram
+               {t("Message us on Instagram")}
             </a>
           </div>
         </div>
