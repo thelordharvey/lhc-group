@@ -138,8 +138,10 @@ html.light .liquid-glass {
   background: color-mix(in oklab, var(--card) 83%, transparent);
   box-shadow: 0 10px 36px -16px oklch(0.2 0.01 260 / 0.2), inset 0 1px 0 var(--card);
 }
+html.light .liquid-glass-sheen::after { opacity: 0.06; }
+html.light .blob { opacity: 0.12; }
 html.light .glass-btn { border-color: color-mix(in oklab, var(--foreground) 16%, transparent); }
-html.light .glass-btn::before { opacity: 0.18; }
+html.light .glass-btn::before { opacity: 0.06; }
 
 
 .dark {
