@@ -16,6 +16,7 @@ import {
 } from "@/components/ai-elements/prompt-input";
 import { Shimmer } from "@/components/ai-elements/shimmer";
 import logoUrl from "@/assets/lhc-logo.png";
+import { useSiteSettings } from "@/lib/site-settings";
 
 const SUGGESTIONS = [
   "What do the courses cost?",
@@ -24,6 +25,7 @@ const SUGGESTIONS = [
 ];
 
 export function FaqChat() {
+  const { t, language } = useSiteSettings();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -53,7 +55,7 @@ export function FaqChat() {
   const send = (text: string) => {
     const value = text.trim();
     if (!value || isBusy) return;
-    void sendMessage({ text: value });
+    void sendMessage({ text: value }, { headers: { "X-LHC-Language": language } });
     setInput("");
     textareaRef.current?.focus();
   };
@@ -63,7 +65,7 @@ export function FaqChat() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Close FAQ chat" : "Open FAQ chat"}
+        aria-label={t(open ? "Close FAQ chat" : "Open FAQ chat")}
         className="glass-btn fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-xl transition-colors hover:bg-primary-glow"
       >
         {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
@@ -74,8 +76,8 @@ export function FaqChat() {
           <div className="flex items-center gap-3 border-b border-border px-4 py-3">
             <img src={logoUrl} alt="LHC Forex" className="h-9 w-9 rounded-full object-cover" />
             <div className="min-w-0">
-              <p className="truncate text-[15px] font-semibold">LHC Forex assistant</p>
-              <p className="truncate text-[12px] text-muted-foreground">Answers about coaching & courses</p>
+              <p className="truncate text-[15px] font-semibold">{t("LHC Forex assistant")}</p>
+              <p className="truncate text-[12px] text-muted-foreground">{t("Answers about coaching & courses")}</p>
             </div>
           </div>
 
@@ -84,17 +86,17 @@ export function FaqChat() {
               {messages.length === 0 && (
                 <div className="grid gap-3">
                   <p className="text-[14px] leading-relaxed text-muted-foreground">
-                    Hi 👋 Ask me anything about LHC Forex — coaching, courses, pricing or how to start.
+                    {t("Hi 👋 Ask me anything about LHC Forex — coaching, courses, pricing or how to start.")}
                   </p>
                   <div className="grid gap-2">
                     {SUGGESTIONS.map((s) => (
                       <button
-                        key={s}
+                        key={t(s)}
                         type="button"
-                        onClick={() => send(s)}
+                        onClick={() => send(t(s))}
                         className="glass-btn rounded-xl border border-border px-3 py-2 text-left text-[14px] transition-colors hover:bg-secondary"
                       >
-                        {s}
+                        {t(s)}
                       </button>
                     ))}
                   </div>
@@ -119,11 +121,11 @@ export function FaqChat() {
                 );
               })}
 
-              {status === "submitted" && <Shimmer>Thinking...</Shimmer>}
+              {status === "submitted" && <Shimmer>{t("Thinking...")}</Shimmer>}
 
               {error && (
                 <p className="text-[13px] text-destructive">
-                  Something went wrong. Please try again, or DM @thelordharvey on Instagram.
+                  {t("Something went wrong. Please try again, or DM @thelordharvey on Instagram.")}
                 </p>
               )}
             </ConversationContent>
@@ -141,7 +143,7 @@ export function FaqChat() {
                 ref={textareaRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask a question..."
+                placeholder={t("Ask a question...")}
               />
               <PromptInputFooter className="justify-end">
                 <PromptInputSubmit status={status} disabled={!input.trim() && !isBusy} />

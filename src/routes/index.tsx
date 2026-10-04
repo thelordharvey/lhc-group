@@ -2,6 +2,8 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import logoUrl from "@/assets/lhc-logo.png";
 import { FaqChat } from "@/components/FaqChat";
+import { SiteControls } from "@/components/SiteControls";
+import { useSiteSettings } from "@/lib/site-settings";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -132,6 +134,7 @@ function CheckIcon({ className }: { className?: string }) {
 }
 
 function Index() {
+  const { t, language } = useSiteSettings();
   const [menuOpen, setMenuOpen] = useState(false);
   const [coursesOpen, setCoursesOpen] = useState(false);
 
@@ -163,21 +166,21 @@ function Index() {
             <ul className="flex gap-1 whitespace-nowrap">
               {navLinks.map((l) =>
                 l.isLink ? (
-                  <li key={l.label}>
+                  <li key={t(l.label)}>
                     <Link
                       to="/proof"
                       className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                     >
-                      {l.label}
+                      {t(l.label)}
                     </Link>
                   </li>
                 ) : (
-                  <li key={l.label}>
+                  <li key={t(l.label)}>
                     <a
                       href={l.href}
                       className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                     >
-                      {l.label}
+                      {t(l.label)}
                     </a>
                   </li>
                 ),
@@ -186,6 +189,7 @@ function Index() {
           </div>
 
           <div className="flex items-center justify-end gap-2">
+            <SiteControls />
             <a
               href={INSTAGRAM_URL}
               target="_blank"
@@ -193,8 +197,8 @@ function Index() {
               className="flex shrink-0 items-center gap-2 rounded-2xl liquid-glass liquid-glass-sheen px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg transition-colors hover:brightness-125"
             >
               <InstagramIcon className="h-4 w-4" />
-              <span className="hidden sm:inline">Contact</span>
-              <span className="sm:hidden">DM</span>
+              <span className="hidden sm:inline">{t("Contact")}</span>
+              <span className="sm:hidden">{t("DM")}</span>
             </a>
 
             <button
@@ -215,23 +219,23 @@ function Index() {
               <ul className="grid gap-1">
                 {navLinks.map((l) =>
                   l.isLink ? (
-                    <li key={l.label}>
+                    <li key={t(l.label)}>
                       <Link
                         to="/proof"
                         onClick={() => setMenuOpen(false)}
                         className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                       >
-                        {l.label}
+                        {t(l.label)}
                       </Link>
                     </li>
                   ) : (
-                    <li key={l.label}>
+                    <li key={t(l.label)}>
                       <a
                         href={l.href}
                         onClick={() => setMenuOpen(false)}
                         className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                       >
-                        {l.label}
+                        {t(l.label)}
                       </a>
                     </li>
                   ),
@@ -251,12 +255,10 @@ function Index() {
           <h1 className="mt-4 text-4xl font-bold leading-[1.05] tracking-[-0.03em] sm:text-6xl">
             Trade with consistency.
             <br />
-            <span className="text-primary">Grow for the long term.</span>
+            <span className="text-primary">{t("Grow for the long term.") }</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-muted-foreground">
-            LHC Forex is a coaching group for traders tired of good weeks followed by blown
-            accounts. We build the process — risk, psychology and a plan you actually follow —
-            through personalized 1-on-1 coaching.
+            {t("LHC Forex is a coaching group for traders tired of good weeks followed by blown accounts. We build the process — risk, psychology and a plan you actually follow — through personalized 1-on-1 coaching.")}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
@@ -277,9 +279,9 @@ function Index() {
           </div>
           <dl className="mx-auto mt-12 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
             {STATS.map((s) => (
-              <div key={s.label} className="min-w-0">
+              <div key={t(s.label)} className="min-w-0">
                 <dt className="text-2xl font-bold">{s.value}</dt>
-                <dd className="mt-1 text-[13px] text-muted-foreground">{s.label}</dd>
+                <dd className="mt-1 text-[13px] text-muted-foreground">{t(s.label)}</dd>
               </div>
             ))}
           </dl>
@@ -288,22 +290,22 @@ function Index() {
 
       <section id="method" className="relative px-5 py-16">
         <div className="mx-auto max-w-6xl">
-          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">The method</p>
+          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("The method") }</p>
           <h2 className="mt-3 max-w-xl text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
             Performance is a system, not a lucky streak
           </h2>
           <div className="mt-8 overflow-hidden rounded-2xl liquid-glass liquid-glass-sheen sm:grid sm:grid-cols-2">
             {PILLARS.map((p) => (
               <article
-                key={p.title}
+                key={t(p.title)}
                 className="flex gap-4 border-b border-border p-5 last:border-b-0 transition-colors hover:brightness-125 sm:[&:nth-last-child(2)]:border-b-0"
               >
                 <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-tg-panel text-xl">
                   {p.icon}
                 </span>
                 <div className="min-w-0">
-                  <h3 className="text-[17px] font-semibold">{p.title}</h3>
-                  <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{p.body}</p>
+                  <h3 className="text-[17px] font-semibold">{t(p.title)}</h3>
+                  <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{t(p.body)}</p>
                 </div>
               </article>
             ))}
@@ -313,7 +315,7 @@ function Index() {
 
       <section id="process" className="relative px-5 py-16">
         <div className="mx-auto max-w-6xl">
-          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">Process</p>
+          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("Process") }</p>
           <h2 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
             From leaks to a stable curve
           </h2>
@@ -324,8 +326,8 @@ function Index() {
                   {s.n}
                 </span>
                 <div className="min-w-0">
-                  <h3 className="text-[17px] font-semibold">{s.title}</h3>
-                  <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{s.body}</p>
+                  <h3 className="text-[17px] font-semibold">{t(s.title)}</h3>
+                  <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{t(s.body)}</p>
                 </div>
               </li>
             ))}
@@ -335,7 +337,7 @@ function Index() {
 
       <section id="courses" className="relative px-5 py-16">
         <div className="mx-auto max-w-6xl">
-          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">Courses</p>
+          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("Courses") }</p>
           <h2 className="mt-3 max-w-xl text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
             Choose how you want to level up
           </h2>
@@ -349,7 +351,7 @@ function Index() {
             className="glass-btn mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
             aria-expanded={coursesOpen}
           >
-            {coursesOpen ? "Hide courses" : "View courses"}
+            {t(coursesOpen ? "Hide courses" : "View courses")}
             <span className="grid h-5 w-5 place-items-center rounded-full bg-primary-foreground/20 text-[11px]">
               {coursesOpen ? "−" : "+"}
             </span>
@@ -362,20 +364,20 @@ function Index() {
                   key={c.id}
                   className="rounded-2xl liquid-glass liquid-glass-sheen p-6 transition-colors hover:brightness-125 sm:p-8"
                 >
-                  <h3 className="text-xl font-bold">{c.title}</h3>
+                  <h3 className="text-xl font-bold">{t(c.title)}</h3>
                   <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
                     <span className="text-2xl font-bold text-primary">${c.price}</span>
                     {c.monthlyPrice && (
-                      <span className="text-[14px] text-white">
-                        or ${c.monthlyPrice}/month
+                      <span className="text-[14px] text-foreground">
+                        {t("or")} ${c.monthlyPrice}/{t("month")}
                       </span>
                     )}
                   </div>
                   <ul className="mt-5 grid gap-3">
                     {c.features.map((f) => (
-                      <li key={f} className="flex items-start gap-3 text-[15px] text-muted-foreground">
+                      <li key={t(f)} className="flex items-start gap-3 text-[15px] text-muted-foreground">
                         <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                        <span>{f}</span>
+                        <span>{t(f)}</span>
                       </li>
                     ))}
                   </ul>
@@ -386,7 +388,7 @@ function Index() {
                     className="glass-btn mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-secondary px-6 py-3 text-[15px] font-semibold text-secondary-foreground transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
                   >
                     <InstagramIcon className="h-4 w-4" />
-                    {c.cta}
+                    {t(c.cta)}
                   </a>
                 </article>
               ))}
@@ -401,8 +403,7 @@ function Index() {
             Ready for consistent execution?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-            Send a DM on Instagram and a LHC Forex coach will answer with your next step toward
-            long-term financial growth.
+            {t("Send a DM on Instagram and a LHC Forex coach will answer with your next step toward long-term financial growth.")}
           </p>
           <a
             href={INSTAGRAM_URL}
@@ -418,7 +419,7 @@ function Index() {
 
       <footer className="border-t border-border px-5 py-8">
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
-          <p className="truncate text-[13px] text-muted-foreground">LHC Forex — Coaching group</p>
+          <p className="truncate text-[13px] text-muted-foreground">LHC Forex — {t("Coaching group")}</p>
           <a
             href={INSTAGRAM_URL}
             target="_blank"
