@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LoadingScreen } from "../components/LoadingScreen";
+import { SiteSettingsProvider } from "@/lib/site-settings";
 
 function NotFoundComponent() {
   return (
@@ -127,9 +128,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <LoadingScreen />
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <SiteSettingsProvider>
+        <LoadingScreen />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </SiteSettingsProvider>
     </QueryClientProvider>
   );
 }
