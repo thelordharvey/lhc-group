@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep visitor appearance and language in a root-level React provider with browser storage read after hydration, so both pages share settings without server/client mismatch.
+- Keep the site copy translations in a shared client-safe module, so navigation, content, and chat labels use the same language setting.

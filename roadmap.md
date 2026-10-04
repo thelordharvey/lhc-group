@@ -1,0 +1,3 @@
+- [ ] Add a persistent light/dark appearance switch beside Contact on both pages.
+- [ ] Add EN/FR translation across home, proof, and FAQ chat.
+- [ ] Verify desktop and mobile interactions and metadata/build status.
