@@ -5,6 +5,8 @@ import chart2 from "@/assets/XAUUSD_2026-08-12_15-59-19_5825b.png";
 import chart3 from "@/assets/xauusd-live-desk.jpeg";
 
 import logoUrl from "@/assets/lhc-logo.png";
+import { SiteControls } from "@/components/SiteControls";
+import { useSiteSettings } from "@/lib/site-settings";
 
 export const Route = createFileRoute("/proof")({
   head: () => ({
@@ -79,6 +81,7 @@ function XIcon({ className }: { className?: string }) {
 }
 
 function ProofPage() {
+  const { t } = useSiteSettings();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
@@ -109,12 +112,12 @@ function ProofPage() {
           <div className="order-last col-span-3 flex max-w-full overflow-x-auto rounded-2xl liquid-glass liquid-glass-sheen p-1.5 shadow-lg [-ms-overflow-style:none] [scrollbar-width:none] sm:order-none sm:col-span-1 [&::-webkit-scrollbar]:hidden">
             <ul className="flex gap-1">
               {navLinks.map((l) => (
-                <li key={l.label}>
+                <li key={t(l.label)}>
                   <Link
                     to={l.href as "/"}
                     className="block rounded-xl px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                   >
-                    {l.label}
+                    {t(l.label)}
                   </Link>
                 </li>
               ))}
@@ -122,6 +125,7 @@ function ProofPage() {
           </div>
 
           <div className="flex items-center justify-end gap-2">
+            <SiteControls />
             <a
               href={INSTAGRAM_URL}
               target="_blank"
@@ -129,8 +133,8 @@ function ProofPage() {
               className="flex shrink-0 items-center gap-2 rounded-2xl liquid-glass liquid-glass-sheen px-4 py-2.5 text-[15px] font-medium text-foreground shadow-lg transition-colors hover:brightness-125"
             >
               <InstagramIcon className="h-4 w-4" />
-              <span className="hidden sm:inline">Contact</span>
-              <span className="sm:hidden">DM</span>
+              <span className="hidden sm:inline">{t("Contact")}</span>
+              <span className="sm:hidden">{t("DM")}</span>
             </a>
 
             <button
@@ -150,13 +154,13 @@ function ProofPage() {
             <div className="rounded-2xl liquid-glass liquid-glass-sheen p-2 shadow-xl">
               <ul className="grid gap-1">
                 {navLinks.map((l) => (
-                  <li key={l.label}>
+                  <li key={t(l.label)}>
                     <Link
                       to={l.href as "/"}
                       onClick={() => setMenuOpen(false)}
                       className="block rounded-xl px-4 py-3 text-[15px] text-muted-foreground transition-colors hover:brightness-125 hover:text-foreground"
                     >
-                      {l.label}
+                      {t(l.label)}
                     </Link>
                   </li>
                 ))}
@@ -168,13 +172,12 @@ function ProofPage() {
 
       <main className="px-5 pt-32 pb-20">
         <div className="mx-auto max-w-6xl">
-          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">Proof</p>
+          <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("Proof") }</p>
           <h1 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-            Real charts from the coaching desk
+             {t("Real charts from the coaching desk")}
           </h1>
           <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-            Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci
-            executed with the same rules we teach in 1-on-1 coaching.
+            {t("Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci executed with the same rules we teach in 1-on-1 coaching.")}
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {PROOF.map((p) => (
@@ -184,16 +187,16 @@ function ProofPage() {
               >
                 <img
                   src={p.src}
-                  alt={`${p.pair} trade setup shared by LHC Forex on ${p.date}`}
+                  alt={`${p.pair} trade setup shared by LHC Forex on ${t(p.date)}`}
                   loading="lazy"
                   className="w-full bg-secondary object-cover"
                 />
                 <figcaption className="p-4">
                   <div className="flex items-center justify-between gap-3">
                     <span className="text-[15px] font-semibold">{p.pair}</span>
-                    <span className="text-[13px] text-muted-foreground">{p.date}</span>
+                    <span className="text-[13px] text-muted-foreground">{t(p.date)}</span>
                   </div>
-                  <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{p.note}</p>
+                  <p className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{t(p.note)}</p>
                 </figcaption>
               </figure>
             ))}
@@ -203,7 +206,7 @@ function ProofPage() {
               to="/"
               className="glass-btn rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
             >
-              Back home
+               {t("Back home")}
             </Link>
             <a
               href={INSTAGRAM_URL}
@@ -212,7 +215,7 @@ function ProofPage() {
               className="glass-btn inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-primary-glow"
             >
               <InstagramIcon className="h-5 w-5" />
-              Message us on Instagram
+               {t("Message us on Instagram")}
             </a>
           </div>
         </div>
@@ -220,7 +223,7 @@ function ProofPage() {
 
       <footer className="border-t border-border px-5 py-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-          <p className="truncate text-[13px] text-muted-foreground">LHC Forex — Coaching group</p>
+          <p className="truncate text-[13px] text-muted-foreground">LHC Forex — {t("Coaching group")}</p>
           <a
             href={INSTAGRAM_URL}
             target="_blank"
