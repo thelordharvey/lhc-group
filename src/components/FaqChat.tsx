@@ -66,13 +66,13 @@ export function FaqChat() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-label={t(open ? "Close FAQ chat" : "Open FAQ chat")}
-        className="glass-btn fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-xl transition-colors hover:bg-primary-glow"
+        className={`glass-btn fixed right-5 z-[60] grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-xl transition-colors hover:bg-primary-glow ${open ? "top-4 bottom-auto sm:top-auto sm:bottom-5" : "bottom-5"}`}
       >
         {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
       </button>
 
       {open && (
-        <div className="fixed inset-x-3 bottom-24 z-50 flex h-[70vh] max-h-[560px] flex-col overflow-hidden rounded-3xl liquid-glass liquid-glass-sheen shadow-2xl sm:inset-x-auto sm:right-5 sm:w-[380px]">
+        <div className="fixed inset-0 z-50 flex h-dvh max-h-none flex-col overflow-hidden rounded-none liquid-glass liquid-glass-sheen shadow-2xl sm:inset-x-auto sm:top-auto sm:right-5 sm:bottom-24 sm:h-[70vh] sm:max-h-[560px] sm:w-[380px] sm:rounded-3xl">
           <div className="flex items-center gap-3 border-b border-border px-4 py-3">
             <img src={logoUrl} alt="LHC Forex" className="h-9 w-9 rounded-full object-cover" />
             <div className="min-w-0">
