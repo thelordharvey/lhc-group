@@ -162,8 +162,8 @@ function Index() {
             />
           </a>
 
-          <div className="order-last col-span-3 flex max-w-full overflow-x-auto rounded-2xl liquid-glass liquid-glass-sheen p-1.5 shadow-lg [-ms-overflow-style:none] [scrollbar-width:none] sm:order-none sm:col-span-1 [&::-webkit-scrollbar]:hidden">
-            <ul className="flex gap-1 whitespace-nowrap">
+          <div className="order-last col-span-3 flex min-w-0 max-w-full flex-col rounded-2xl liquid-glass p-1.5 shadow-lg sm:order-none sm:col-span-1 sm:flex-row sm:items-center">
+            <ul className="flex min-w-0 gap-1 overflow-x-auto whitespace-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {navLinks.map((l) =>
                 l.isLink ? (
                   <li key={t(l.label)}>
@@ -186,10 +186,10 @@ function Index() {
                 ),
               )}
             </ul>
+            <SiteControls />
           </div>
 
           <div className="flex items-center justify-end gap-2">
-            <SiteControls />
             <a
               href={INSTAGRAM_URL}
               target="_blank"
@@ -246,7 +246,7 @@ function Index() {
         )}
       </nav>
 
-      <header id="top" className="relative overflow-hidden px-5 pt-40 pb-16">
+      <header id="top" className="relative overflow-hidden px-5 pt-48 pb-16 sm:pt-40">
         <div className="blob animate-blob left-[-160px] top-[-140px] h-[540px] w-[540px] bg-primary/20" />
         <div className="relative mx-auto max-w-3xl text-center">
           <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">
@@ -430,7 +430,7 @@ function Index() {
           </a>
         </div>
       </footer>
-      <FaqChat />
+      <div className="hidden sm:block"><FaqChat /></div>
     </div>
   );
 }
