@@ -1,5 +1,5 @@
-- [ ] Add a persistent light/dark appearance switch beside Contact on both pages.
-- [ ] Add EN/FR translation across home, proof, and FAQ chat.
-- [ ] Verify desktop and mobile interactions and metadata/build status.
-- [ ] Combine animated appearance and EN/FR switches inside the navigation panel on desktop and mobile.
-- [ ] Keep the FAQ chatbot off the mobile home page.
+- [x] Add persistent appearance and language controls on both pages.
+- [x] Add EN/FR translation across home, proof, and FAQ chat.
+- [x] Verify desktop and mobile interactions and metadata/build status.
+- [x] Combine animated appearance and EN/FR switches inside the navigation panel on desktop and mobile.
+- [x] Keep the FAQ chatbot off the mobile home page.
