@@ -162,8 +162,8 @@ function Index() {
             />
           </a>
 
-          <div className="order-last col-span-3 flex max-w-full overflow-x-auto rounded-2xl liquid-glass liquid-glass-sheen p-1.5 shadow-lg [-ms-overflow-style:none] [scrollbar-width:none] sm:order-none sm:col-span-1 [&::-webkit-scrollbar]:hidden">
-            <ul className="flex gap-1 whitespace-nowrap">
+          <div className="order-last col-span-3 flex min-w-0 max-w-full items-center rounded-2xl liquid-glass p-1.5 shadow-lg sm:order-none sm:col-span-1">
+            <ul className="flex min-w-0 flex-1 gap-1 overflow-x-auto whitespace-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {navLinks.map((l) =>
                 l.isLink ? (
                   <li key={t(l.label)}>
@@ -186,10 +186,10 @@ function Index() {
                 ),
               )}
             </ul>
+            <SiteControls />
           </div>
 
           <div className="flex items-center justify-end gap-2">
-            <SiteControls />
             <a
               href={INSTAGRAM_URL}
               target="_blank"
@@ -430,7 +430,7 @@ function Index() {
           </a>
         </div>
       </footer>
-      <FaqChat />
+      <div className="hidden sm:block"><FaqChat /></div>
     </div>
   );
 }
