@@ -5,7 +5,7 @@ import { useSiteSettings } from "@/lib/site-settings";
 export function SiteControls() {
   const { theme, setTheme, language, setLanguage } = useSiteSettings();
   return (
-    <div className="flex shrink-0 items-center justify-end gap-1 border-t border-border pt-1.5 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-1.5">
+    <div className="flex shrink-0 items-center justify-end gap-1 border-l border-border pl-1.5">
       <Button type="button" variant="ghost" size="icon" title={theme === "dark" ? "Switch to light appearance" : "Switch to dark appearance"} aria-label={theme === "dark" ? "Switch to light appearance" : "Switch to dark appearance"} onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="h-9 w-9 rounded-lg text-foreground hover:bg-secondary hover:text-foreground">
         <span className={`grid place-items-center transition-transform duration-300 motion-reduce:transition-none ${theme === "dark" ? "rotate-0" : "rotate-180"}`}>
           {theme === "dark" ? <Sun aria-hidden="true" /> : <Moon aria-hidden="true" />}

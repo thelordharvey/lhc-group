@@ -109,8 +109,8 @@ function ProofPage() {
             />
           </Link>
 
-          <div className="order-last col-span-3 flex min-w-0 max-w-full flex-col rounded-2xl liquid-glass p-1.5 shadow-lg sm:order-none sm:col-span-1 sm:flex-row sm:items-center">
-            <ul className="flex min-w-0 gap-1 overflow-x-auto whitespace-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="order-last col-span-3 flex min-w-0 max-w-full items-center rounded-2xl liquid-glass p-1.5 shadow-lg sm:order-none sm:col-span-1">
+            <ul className="flex min-w-0 flex-1 gap-1 overflow-x-auto whitespace-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {navLinks.map((l) => (
                 <li key={t(l.label)}>
                   <Link
@@ -170,7 +170,7 @@ function ProofPage() {
         )}
       </nav>
 
-      <main className="px-5 pt-44 pb-20 sm:pt-32">
+      <main className="px-5 pt-32 pb-20">
         <div className="mx-auto max-w-6xl">
           <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("Proof") }</p>
           <h1 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
