@@ -2,4 +2,4 @@
 - [x] Add EN/FR translation across home, proof, and FAQ chat.
 - [x] Verify desktop and mobile interactions and metadata/build status.
 - [x] Combine animated appearance and EN/FR switches inside the navigation panel on desktop and mobile.
-- [x] Keep the FAQ chatbot off the mobile home page.
+- [x] Show the FAQ chatbot bubble on mobile and open it full-screen.
