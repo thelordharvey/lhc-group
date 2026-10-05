@@ -430,7 +430,7 @@ function Index() {
           </a>
         </div>
       </footer>
-      <div className="hidden sm:block"><FaqChat /></div>
+      <FaqChat />
     </div>
   );
 }
