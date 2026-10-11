@@ -291,3 +291,41 @@ html.light .glass-btn::before { opacity: 0.06; }
     transparent 70%
   );
 }
+
+/* Reference loading sequence: outline draw, fill, then a soft zoom/fade reveal. */
+:root {
+  --loader-background: oklch(0.182 0 0);
+  --loader-outline: oklch(0.623 0.214 259.8);
+  --loader-fill: oklch(0.985 0 0);
+  --loader-track: oklch(0.985 0 0 / 10%);
+  --loader-caption: oklch(0.985 0 0 / 60%);
+  --loader-counter: oklch(0.985 0 0 / 30%);
+}
+.lhc-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--loader-background);
+  transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+}
+.lhc-loader-exit { opacity: 0; transform: scale(1.05); pointer-events: none; }
+.lhc-loader-content { width: min(288px, calc(100% - 48px)); }
+.lhc-loader-lettering { display: block; width: 100%; }
+.lhc-loader-outline { stroke: var(--loader-outline); }
+.lhc-loader-fill { fill: var(--loader-fill); }
+.lhc-loader-subtitle { display: block; width: 100%; height: 24px; margin-top: 8px; }
+.lhc-loader-subtitle text { fill: var(--loader-caption); font-family: var(--font-display); font-size: 14px; letter-spacing: 0; }
+.lhc-loader-progress { display: block; width: 100%; height: 4px; margin-top: 32px; }
+.lhc-loader-track { fill: var(--loader-track); }
+.lhc-loader-bar { fill: var(--loader-outline); }
+.lhc-loader-percentage { margin-top: 12px; text-align: center; color: var(--loader-counter); font-size: 12px; font-variant-numeric: tabular-nums; animation: lhc-counter-in 300ms 300ms both; }
+@keyframes lhc-counter-in { from { opacity: 0; } to { opacity: 1; } }
+@media (min-width: 768px) { .lhc-loader-content { width: 384px; } }
+@media (prefers-reduced-motion: reduce) {
+  .lhc-loader { transition: opacity 50ms linear; }
+  .lhc-loader-exit { transform: none; }
+  .lhc-loader-percentage { animation: none; }
+}
