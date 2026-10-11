@@ -3,4 +3,4 @@
 - [x] Verify desktop and mobile interactions and metadata/build status.
 - [x] Combine animated appearance and EN/FR switches inside the navigation panel on desktop and mobile.
 - [x] Show the FAQ chatbot bubble on mobile and open it full-screen.
-- [ ] Match the reference loading animation with LHC branding and verify its page reveal.
+- [x] Match the reference loading animation with LHC branding and verify its page reveal.
