@@ -4,6 +4,7 @@ import logoUrl from "@/assets/lhc-logo.png";
 import { FaqChat } from "@/components/FaqChat";
 import { SiteControls } from "@/components/SiteControls";
 import { useSiteSettings } from "@/lib/site-settings";
+import { Brain, Map, ShieldCheck, TrendingUp } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,22 +35,22 @@ const INSTAGRAM_URL =
 
 const PILLARS = [
   {
-    icon: "🛡️",
+    icon: ShieldCheck,
     title: "Risk architecture",
     body: "Position sizing, drawdown caps and rules that keep your capital alive through losing streaks.",
   },
   {
-    icon: "🧠",
+    icon: Brain,
     title: "Trader psychology",
     body: "Routines, tilt triggers and accountability so your execution matches your plan every session.",
   },
   {
-    icon: "📈",
+    icon: TrendingUp,
     title: "Edge refinement",
     body: "We audit your journal, tag every setup and cut what does not pay you over a real sample.",
   },
   {
-    icon: "🗺️",
+    icon: Map,
     title: "Personalized roadmap",
     body: "A written plan built around your schedule, account size and target pace of growth.",
   },
@@ -300,8 +301,8 @@ function Index() {
                 key={t(p.title)}
                 className="flex gap-4 border-b border-border p-5 last:border-b-0 transition-colors hover:brightness-125 sm:[&:nth-last-child(2)]:border-b-0"
               >
-                <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-tg-panel text-xl">
-                  {p.icon}
+                <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-tg-panel text-primary">
+                  <p.icon className="h-5 w-5" strokeWidth={1.8} />
                 </span>
                 <div className="min-w-0">
                   <h3 className="text-[17px] font-semibold">{t(p.title)}</h3>
