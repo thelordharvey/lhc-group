@@ -4,3 +4,5 @@
 - [x] Combine animated appearance and EN/FR switches inside the navigation panel on desktop and mobile.
 - [x] Show the FAQ chatbot bubble on mobile and open it full-screen.
 - [x] Match the reference loading animation with LHC branding and verify its page reveal.
+- [ ] Generate the LHC coaching motion-graphics video.
+- [ ] Embed the video in the process section and verify playback on desktop and mobile.
