@@ -6,3 +6,4 @@
 - [x] Match the reference loading animation with LHC branding and verify its page reveal.
 - [ ] Generate the LHC coaching motion-graphics video.
 - [ ] Embed the video in the process section and verify playback on desktop and mobile.
+- [ ] Add all newly supplied proof images with individual descriptions and floating liquid-glass styling.
