@@ -13,3 +13,4 @@
 - Keep the site copy translations in a shared client-safe module, so navigation, content, and chat labels use the same language setting.
 - Keep the loading sequence in the shared root-mounted LoadingScreen with browser readiness checks and CSS-scoped animation tokens, so every entry page gets the same hydration-safe intro without changing page layouts.
 - Register generated coaching videos as CDN asset pointers and render them in a dedicated player with native controls and no autoplay, keeping large media out of the repository and playback visitor-controlled.
+- Resolve CDN media through the published LHC origin so the same media can load on Netlify; keep bilingual proof attachment captions in a shared client-safe catalog.

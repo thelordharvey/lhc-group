@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import logoUrl from "@/assets/lhc-logo.png";
 import { FaqChat } from "@/components/FaqChat";
 import { SiteControls } from "@/components/SiteControls";
+import { CoachingVideo } from "@/components/CoachingVideo";
 import { useSiteSettings } from "@/lib/site-settings";
 import { Brain, Map, ShieldCheck, TrendingUp } from "lucide-react";
 
@@ -333,6 +334,7 @@ function Index() {
               </li>
             ))}
           </ol>
+          <CoachingVideo />
         </div>
       </section>
 
