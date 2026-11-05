@@ -325,13 +325,49 @@ html.light .glass-btn::before { opacity: 0.06; }
 @keyframes lhc-counter-in { from { opacity: 0; } to { opacity: 1; } }
 .proof-float {
   animation: proof-float 7s ease-in-out infinite;
-  transition: translate 250ms ease, border-color 250ms ease;
+  transition: translate 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+  box-shadow:
+    0 18px 46px -22px oklch(0 0 0 / 0.75),
+    0 0 0 1px color-mix(in oklab, var(--primary) 10%, transparent);
 }
-.proof-float:nth-child(3n + 2) { animation-delay: -2s; }
-.proof-float:nth-child(3n) { animation-delay: -4s; }
-.proof-float:hover { translate: 0 -4px; border-color: var(--primary); }
-@keyframes proof-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-@media (prefers-reduced-motion: reduce) { .proof-float { animation: none; transition: none; } .proof-float:hover { translate: none; } }
+.proof-float::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 32%,
+    color-mix(in oklab, var(--foreground) 13%, transparent) 47%,
+    transparent 62%
+  );
+  transform: translateX(-130%);
+  animation: proof-sheen 9s ease-in-out infinite;
+}
+.proof-float:nth-child(3n + 1) { animation-duration: 7s; }
+.proof-float:nth-child(3n + 2) { animation-delay: -2.4s; animation-duration: 8.4s; }
+.proof-float:nth-child(3n) { animation-delay: -4.8s; animation-duration: 6.2s; }
+.proof-float:hover {
+  translate: 0 -6px;
+  border-color: color-mix(in oklab, var(--primary) 55%, transparent);
+  box-shadow:
+    0 26px 60px -24px oklch(0 0 0 / 0.8),
+    0 0 0 1px color-mix(in oklab, var(--primary) 30%, transparent);
+}
+@keyframes proof-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-0.3deg); }
+}
+@keyframes proof-sheen {
+  0%, 62% { transform: translateX(-130%); }
+  100% { transform: translateX(130%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .proof-float { animation: none; transition: none; }
+  .proof-float::before { animation: none; }
+  .proof-float:hover { translate: none; }
+}
 @media (min-width: 768px) { .lhc-loader-content { width: 384px; } }
 @media (prefers-reduced-motion: reduce) {
   .lhc-loader { transition: opacity 50ms linear; }
