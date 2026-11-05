@@ -330,6 +330,14 @@ html.light .glass-btn::before { opacity: 0.06; }
     0 18px 46px -22px oklch(0 0 0 / 0.75),
     0 0 0 1px color-mix(in oklab, var(--primary) 10%, transparent);
 }
+.proof-float > img {
+  position: relative;
+  z-index: 0;
+}
+.proof-float > figcaption {
+  position: relative;
+  z-index: 2;
+}
 .proof-float::before {
   content: "";
   position: absolute;

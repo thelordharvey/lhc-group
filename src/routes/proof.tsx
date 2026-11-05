@@ -174,9 +174,12 @@ function ProofPage() {
       <main className="px-5 pt-32 pb-20">
         <div className="relative mx-auto max-w-6xl">
           <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-            <div className="blob animate-blob left-[-150px] top-[60px] h-[460px] w-[460px] bg-primary/22" />
-            <div className="blob animate-blob right-[-130px] top-[420px] h-[420px] w-[420px] bg-primary-glow/18 [animation-delay:-6s]" />
-            <div className="blob animate-blob bottom-[140px] left-[35%] h-[520px] w-[520px] bg-primary/14 [animation-delay:-11s]" />
+            <div className="blob animate-blob left-[5%] top-[1%] h-[420px] w-[420px] bg-primary/25 sm:left-[-150px] sm:top-[40px]" />
+            <div className="blob animate-blob left-[35%] top-[14%] h-[400px] w-[400px] bg-primary-glow/20 [animation-delay:-4s] sm:left-auto sm:right-[-130px] sm:top-[380px]" />
+            <div className="blob animate-blob left-[8%] top-[28%] h-[460px] w-[460px] bg-primary/18 [animation-delay:-8s] sm:left-[32%] sm:top-auto sm:bottom-[52%]" />
+            <div className="blob animate-blob left-[40%] top-[45%] h-[440px] w-[440px] bg-primary/20 [animation-delay:-12s] sm:left-auto sm:right-[6%] sm:top-auto sm:bottom-[34%]" />
+            <div className="blob animate-blob left-[5%] top-[62%] h-[460px] w-[460px] bg-primary-glow/18 [animation-delay:-6s] sm:left-[-120px] sm:top-auto sm:bottom-[18%]" />
+            <div className="blob animate-blob left-[30%] top-[80%] h-[440px] w-[440px] bg-primary/20 [animation-delay:-15s] sm:left-auto sm:right-[-140px] sm:top-auto sm:bottom-[2%]" />
           </div>
           <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("Proof") }</p>
           <h1 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
