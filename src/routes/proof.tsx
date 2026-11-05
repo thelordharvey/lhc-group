@@ -192,7 +192,7 @@ function ProofPage() {
             {PROOF.map((p) => (
               <figure
                 key={p.src}
-                className="proof-float overflow-hidden rounded-lg liquid-glass liquid-glass-sheen"
+                className="proof-float proof-glass overflow-hidden rounded-lg liquid-glass liquid-glass-sheen"
               >
                 <img
                   src={p.src}
@@ -212,7 +212,7 @@ function ProofPage() {
           </div>
           <div className="mt-10 columns-1 gap-6 sm:columns-2 lg:columns-3">
             {proofAttachments.map((p) => (
-              <figure key={p.src} className="proof-float mb-6 break-inside-avoid overflow-hidden rounded-lg liquid-glass liquid-glass-sheen">
+              <figure key={p.src} className="proof-float proof-glass mb-6 break-inside-avoid overflow-hidden rounded-lg liquid-glass liquid-glass-sheen">
                 <img src={p.src} alt={language === "fr" ? p.frTitle : p.title} loading="lazy" className="block h-auto max-h-[540px] w-full bg-secondary object-contain" />
                 <figcaption className="p-5">
                   <h2 className="text-base font-semibold">{language === "fr" ? p.frTitle : p.title}</h2>
@@ -244,7 +244,7 @@ function ProofPage() {
 
       <footer className="border-t border-border px-5 py-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-          <p className="truncate text-[13px] text-muted-foreground">LHC Forex — {t("Coaching group")}</p>
+          <p className="text-[13px] text-muted-foreground sm:truncate">LHC Forex — {t("Coaching group")}</p>
           <a
             href={INSTAGRAM_URL}
             target="_blank"
