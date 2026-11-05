@@ -7,6 +7,7 @@ import chart3 from "@/assets/xauusd-live-desk.jpeg";
 import logoUrl from "@/assets/lhc-logo.png";
 import { SiteControls } from "@/components/SiteControls";
 import { useSiteSettings } from "@/lib/site-settings";
+import { proofAttachments } from "@/lib/proof-attachments";
 
 export const Route = createFileRoute("/proof")({
   head: () => ({
@@ -81,7 +82,7 @@ function XIcon({ className }: { className?: string }) {
 }
 
 function ProofPage() {
-  const { t } = useSiteSettings();
+  const { t, language } = useSiteSettings();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
@@ -183,7 +184,7 @@ function ProofPage() {
             {PROOF.map((p) => (
               <figure
                 key={p.src}
-                className="overflow-hidden rounded-2xl liquid-glass liquid-glass-sheen"
+                className="proof-float overflow-hidden rounded-lg liquid-glass liquid-glass-sheen"
               >
                 <img
                   src={p.src}
@@ -201,6 +202,18 @@ function ProofPage() {
               </figure>
             ))}
           </div>
+          <div className="mt-10 columns-1 gap-6 sm:columns-2 lg:columns-3">
+            {proofAttachments.map((p) => (
+              <figure key={p.src} className="proof-float mb-6 break-inside-avoid overflow-hidden rounded-lg liquid-glass liquid-glass-sheen">
+                <img src={p.src} alt={language === "fr" ? p.frTitle : p.title} loading="lazy" className="block h-auto max-h-[540px] w-full bg-secondary object-contain" />
+                <figcaption className="p-5">
+                  <h2 className="text-base font-semibold">{language === "fr" ? p.frTitle : p.title}</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{language === "fr" ? p.frNote : p.note}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{language === "fr" ? "Captures et messages fournis par LHC Forex. Les positions ouvertes peuvent évoluer ; les résultats passés ne garantissent pas les résultats futurs." : "Screenshots and messages supplied by LHC Forex. Open positions can change; past results do not guarantee future performance."}</p>
           <div className="mt-12 flex flex-wrap gap-3">
             <Link
               to="/"

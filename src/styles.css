@@ -323,6 +323,15 @@ html.light .glass-btn::before { opacity: 0.06; }
 .lhc-loader-bar { fill: var(--loader-outline); }
 .lhc-loader-percentage { margin-top: 12px; text-align: center; color: var(--loader-counter); font-size: 12px; font-variant-numeric: tabular-nums; animation: lhc-counter-in 300ms 300ms both; }
 @keyframes lhc-counter-in { from { opacity: 0; } to { opacity: 1; } }
+.proof-float {
+  animation: proof-float 7s ease-in-out infinite;
+  transition: translate 250ms ease, border-color 250ms ease;
+}
+.proof-float:nth-child(3n + 2) { animation-delay: -2s; }
+.proof-float:nth-child(3n) { animation-delay: -4s; }
+.proof-float:hover { translate: 0 -4px; border-color: var(--primary); }
+@keyframes proof-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@media (prefers-reduced-motion: reduce) { .proof-float { animation: none; transition: none; } .proof-float:hover { translate: none; } }
 @media (min-width: 768px) { .lhc-loader-content { width: 384px; } }
 @media (prefers-reduced-motion: reduce) {
   .lhc-loader { transition: opacity 50ms linear; }
