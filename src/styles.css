@@ -145,14 +145,14 @@ html.light .glass-btn::before { opacity: 0.06; }
 html.light .proof-glass {
   background: linear-gradient(
     155deg,
-    color-mix(in oklab, var(--primary) 12%, transparent) 0%,
-    color-mix(in oklab, var(--primary) 5%, transparent) 32%,
-    color-mix(in oklab, var(--card) 82%, transparent) 100%
+    color-mix(in oklab, var(--primary) 26%, transparent) 0%,
+    color-mix(in oklab, var(--primary) 12%, transparent) 30%,
+    color-mix(in oklab, var(--card) 62%, transparent) 100%
   );
   box-shadow:
-    0 10px 36px -16px oklch(0.2 0.01 260 / 0.2),
-    0 0 34px -12px color-mix(in oklab, var(--primary) 35%, transparent),
-    inset 0 1px 0 var(--card);
+    0 10px 36px -16px oklch(0.2 0.01 260 / 0.25),
+    0 0 40px -10px color-mix(in oklab, var(--primary) 45%, transparent),
+    inset 0 1px 0 color-mix(in oklab, white 70%, transparent);
 }
 
 
