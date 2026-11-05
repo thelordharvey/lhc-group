@@ -172,7 +172,15 @@ function ProofPage() {
       </nav>
 
       <main className="px-5 pt-32 pb-20">
-        <div className="mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-6xl">
+          <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+            <div className="blob animate-blob left-[5%] top-[1%] h-[420px] w-[420px] bg-primary/25 sm:left-[-150px] sm:top-[40px]" />
+            <div className="blob animate-blob left-[35%] top-[14%] h-[400px] w-[400px] bg-primary-glow/20 [animation-delay:-4s] sm:left-auto sm:right-[-130px] sm:top-[380px]" />
+            <div className="blob animate-blob left-[8%] top-[28%] h-[460px] w-[460px] bg-primary/18 [animation-delay:-8s] sm:left-[32%] sm:top-auto sm:bottom-[52%]" />
+            <div className="blob animate-blob left-[40%] top-[45%] h-[440px] w-[440px] bg-primary/20 [animation-delay:-12s] sm:left-auto sm:right-[6%] sm:top-auto sm:bottom-[34%]" />
+            <div className="blob animate-blob left-[5%] top-[62%] h-[460px] w-[460px] bg-primary-glow/18 [animation-delay:-6s] sm:left-[-120px] sm:top-auto sm:bottom-[18%]" />
+            <div className="blob animate-blob left-[30%] top-[80%] h-[440px] w-[440px] bg-primary/20 [animation-delay:-15s] sm:left-auto sm:right-[-140px] sm:top-auto sm:bottom-[2%]" />
+          </div>
           <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("Proof") }</p>
           <h1 className="mt-3 text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
              {t("Real charts from the coaching desk")}
@@ -184,7 +192,7 @@ function ProofPage() {
             {PROOF.map((p) => (
               <figure
                 key={p.src}
-                className="proof-float overflow-hidden rounded-lg liquid-glass liquid-glass-sheen"
+                className="proof-float proof-glass overflow-hidden rounded-lg liquid-glass liquid-glass-sheen"
               >
                 <img
                   src={p.src}
@@ -204,7 +212,7 @@ function ProofPage() {
           </div>
           <div className="mt-10 columns-1 gap-6 sm:columns-2 lg:columns-3">
             {proofAttachments.map((p) => (
-              <figure key={p.src} className="proof-float mb-6 break-inside-avoid overflow-hidden rounded-lg liquid-glass liquid-glass-sheen">
+              <figure key={p.src} className="proof-float proof-glass mb-6 break-inside-avoid overflow-hidden rounded-lg liquid-glass liquid-glass-sheen">
                 <img src={p.src} alt={language === "fr" ? p.frTitle : p.title} loading="lazy" className="block h-auto max-h-[540px] w-full bg-secondary object-contain" />
                 <figcaption className="p-5">
                   <h2 className="text-base font-semibold">{language === "fr" ? p.frTitle : p.title}</h2>
@@ -236,7 +244,7 @@ function ProofPage() {
 
       <footer className="border-t border-border px-5 py-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-          <p className="truncate text-[13px] text-muted-foreground">LHC Forex — {t("Coaching group")}</p>
+          <p className="text-[13px] text-muted-foreground sm:truncate">LHC Forex — {t("Coaching group")}</p>
           <a
             href={INSTAGRAM_URL}
             target="_blank"
