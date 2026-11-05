@@ -146,13 +146,21 @@ html.light .proof-glass {
   background: linear-gradient(
     155deg,
     color-mix(in oklab, var(--primary) 26%, transparent) 0%,
-    color-mix(in oklab, var(--primary) 12%, transparent) 30%,
-    color-mix(in oklab, var(--card) 62%, transparent) 100%
+    color-mix(in oklab, var(--primary) 14%, transparent) 42%,
+    color-mix(in oklab, var(--primary) 9%, transparent) 100%
   );
   box-shadow:
     0 10px 36px -16px oklch(0.2 0.01 260 / 0.25),
     0 0 40px -10px color-mix(in oklab, var(--primary) 45%, transparent),
     inset 0 1px 0 color-mix(in oklab, white 70%, transparent);
+}
+html.light .proof-glass > figcaption {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--primary) 10%, transparent) 0%,
+    color-mix(in oklab, var(--primary) 16%, transparent) 100%
+  );
+  border-top: 1px solid color-mix(in oklab, var(--primary) 22%, transparent);
 }
 
 
