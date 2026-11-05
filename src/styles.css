@@ -266,6 +266,19 @@ html.light .glass-btn::before { opacity: 0.06; }
   );
 }
 
+/* Blue-tinted glass for proof cards: the tint lives in the card itself, so it
+   reads as liquid glass even where nothing colourful sits behind it. */
+@utility proof-glass {
+  background:
+    linear-gradient(
+      155deg,
+      color-mix(in oklab, var(--primary) 18%, transparent) 0%,
+      color-mix(in oklab, var(--primary) 7%, transparent) 30%,
+      color-mix(in oklab, var(--foreground) 5%, transparent) 55%,
+      color-mix(in oklab, var(--background) 62%, transparent) 100%
+    );
+}
+
 @utility glass-btn {
   position: relative;
   overflow: hidden;
@@ -328,7 +341,8 @@ html.light .glass-btn::before { opacity: 0.06; }
   transition: translate 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
   box-shadow:
     0 18px 46px -22px oklch(0 0 0 / 0.75),
-    0 0 0 1px color-mix(in oklab, var(--primary) 10%, transparent);
+    0 0 38px -10px color-mix(in oklab, var(--primary) 45%, transparent),
+    0 0 0 1px color-mix(in oklab, var(--primary) 16%, transparent);
 }
 .proof-float > img {
   position: relative;
