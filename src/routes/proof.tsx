@@ -8,6 +8,8 @@ import logoUrl from "@/assets/lhc-logo.png";
 import { SiteControls } from "@/components/SiteControls";
 import { useSiteSettings } from "@/lib/site-settings";
 import { proofAttachments } from "@/lib/proof-attachments";
+import { coachingCaseStudies } from "@/lib/coaching-case-studies";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/proof")({
   head: () => ({
@@ -188,7 +190,38 @@ function ProofPage() {
           <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
             {t("Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci executed with the same rules we teach in 1-on-1 coaching.")}
           </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+           <Tabs defaultValue="one-on-one" className="mt-8">
+             <TabsList aria-label={language === "fr" ? "Programmes de coaching" : "Coaching programs"} className="grid h-auto w-full grid-cols-1 gap-2 bg-secondary p-2 sm:grid-cols-2">
+               <TabsTrigger value="one-on-one" className="min-h-12 whitespace-normal px-4 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">One-on-one coaching program</TabsTrigger>
+               <TabsTrigger value="tailored" className="min-h-12 whitespace-normal px-4 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">{language === "fr" ? "Tailored stratégie access" : "Tailored strategy access"}</TabsTrigger>
+             </TabsList>
+             <TabsContent value="one-on-one" className="pt-6">
+               <h2 className="text-2xl font-semibold">{language === "fr" ? "Études de cas · Coaching individuel" : "Case studies · One-on-one coaching"}</h2>
+               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">{language === "fr" ? "Retours d’apprentissage, préparation et exécution : cinq pièces jointes fournies pour le programme individuel. Les parcours non documentés restent non précisés ; ces captures ne constituent pas un historique complet ni une garantie de résultats." : "Learning feedback, preparation and execution: five attachments supplied for the individual program. Undocumented backgrounds remain unspecified; these screenshots are not a complete history or a guarantee of results."}</p>
+               <div className="mt-8 columns-1 gap-6 lg:columns-2">
+                 {coachingCaseStudies.map((p, index) => (
+                   <figure key={p.id} className="proof-float proof-glass mb-6 break-inside-avoid overflow-hidden rounded-lg liquid-glass liquid-glass-sheen">
+                     <img src={p.src} alt={language === "fr" ? p.frTitle : p.title} loading="lazy" className="block h-auto max-h-[620px] w-full bg-secondary object-contain" />
+                     <figcaption className="p-5 sm:p-6">
+                       <p className="text-xs font-semibold uppercase text-primary">{language === "fr" ? "Étude de cas" : "Case study"} · {String(index + 1).padStart(2, "0")}</p>
+                       <h3 className="mt-2 text-lg font-semibold">{language === "fr" ? p.frTitle : p.title}</h3>
+                       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{language === "fr" ? p.frNote : p.note}</p>
+                       <dl className="mt-5 space-y-4 border-t border-border pt-5 text-sm">
+                         {[
+                           [language === "fr" ? "Expérience" : "Experience", language === "fr" ? p.frExperience : p.experience],
+                           [language === "fr" ? "Niveau" : "Level", language === "fr" ? p.frLevel : p.level],
+                           [language === "fr" ? "Débuts" : "Beginnings", language === "fr" ? p.frBeginning : p.beginning],
+                           [language === "fr" ? "Axe de l’étude" : "Study focus", language === "fr" ? p.frFocus : p.focus],
+                         ].map(([label, text]) => <div key={label}><dt className="font-semibold">{label}</dt><dd className="mt-1 leading-relaxed text-muted-foreground">{text}</dd></div>)}
+                       </dl>
+                     </figcaption>
+                   </figure>
+                 ))}
+               </div>
+             </TabsContent>
+             <TabsContent value="tailored" className="pt-6">
+               <h2 className="text-2xl font-semibold">{language === "fr" ? "Tailored stratégie access" : "Tailored strategy access"}</h2>
+           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {PROOF.map((p) => (
               <figure
                 key={p.src}
@@ -221,7 +254,9 @@ function ProofPage() {
               </figure>
             ))}
           </div>
-          <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{language === "fr" ? "Captures et messages fournis par LHC Forex. Les positions ouvertes peuvent évoluer ; les résultats passés ne garantissent pas les résultats futurs." : "Screenshots and messages supplied by LHC Forex. Open positions can change; past results do not guarantee future performance."}</p>
+             </TabsContent>
+           </Tabs>
+           <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{language === "fr" ? "Captures et messages fournis par LHC Forex. Les positions ouvertes peuvent évoluer ; les résultats passés ne garantissent pas les résultats futurs." : "Screenshots and messages supplied by LHC Forex. Open positions can change; past results do not guarantee future performance."}</p>
           <div className="mt-12 flex flex-wrap gap-3">
             <Link
               to="/"

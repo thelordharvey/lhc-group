@@ -14,3 +14,4 @@
 - Keep the loading sequence in the shared root-mounted LoadingScreen with browser readiness checks and CSS-scoped animation tokens, so every entry page gets the same hydration-safe intro without changing page layouts.
 - Register generated coaching videos as CDN asset pointers and render them in a dedicated player with native controls and no autoplay, keeping large media out of the repository and playback visitor-controlled.
 - Resolve CDN media through the published LHC origin so the same media can load on Netlify; keep bilingual proof attachment captions in a shared client-safe catalog.
+- Keep one-on-one case studies in a separate bilingual evidence catalog and display program galleries with shared Tabs, so attachments retain their program classification without mixing testimonial identities.
