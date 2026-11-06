@@ -191,9 +191,9 @@ function ProofPage() {
             {t("Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci executed with the same rules we teach in 1-on-1 coaching.")}
           </p>
            <Tabs defaultValue="one-on-one" className="mt-8">
-             <TabsList aria-label={language === "fr" ? "Programmes de coaching" : "Coaching programs"} className="grid h-auto w-full grid-cols-1 gap-2 bg-secondary p-2 sm:grid-cols-2">
-               <TabsTrigger value="one-on-one" className="min-h-12 whitespace-normal px-4 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">One-on-one coaching program</TabsTrigger>
-               <TabsTrigger value="tailored" className="min-h-12 whitespace-normal px-4 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">{language === "fr" ? "Tailored stratégie access" : "Tailored strategy access"}</TabsTrigger>
+             <TabsList aria-label={language === "fr" ? "Programmes de coaching" : "Coaching programs"} className="flex h-auto w-fit max-w-full flex-wrap justify-start gap-2 bg-transparent p-0">
+               <TabsTrigger value="one-on-one" className="glass-btn liquid-glass liquid-glass-sheen min-h-10 whitespace-normal px-3 py-2 text-xs data-[state=active]:bg-primary data-[state=active]:text-primary-foreground sm:text-sm">One-on-one coaching program</TabsTrigger>
+               <TabsTrigger value="tailored" className="glass-btn liquid-glass liquid-glass-sheen min-h-10 whitespace-normal px-3 py-2 text-xs data-[state=active]:bg-primary data-[state=active]:text-primary-foreground sm:text-sm">{language === "fr" ? "Tailored stratégie access" : "Tailored strategy access"}</TabsTrigger>
              </TabsList>
              <TabsContent value="one-on-one" className="pt-6">
                <h2 className="text-2xl font-semibold">{language === "fr" ? "Études de cas · Coaching individuel" : "Case studies · One-on-one coaching"}</h2>
