@@ -7,5 +7,5 @@
 - [x] Generate the LHC coaching motion-graphics video.
 - [x] Embed the video in the process section and verify playback on desktop and mobile.
 - [x] Add all newly supplied proof images with individual descriptions and floating liquid-glass styling.
-- [ ] Separate proofs by program and add five one-on-one case studies with evidence-based context.
-- [ ] Verify both proof categories and new attachments on desktop and mobile.
+- [x] Separate proofs by program and add five one-on-one case studies with evidence-based context.
+- [x] Verify both proof categories and new attachments on desktop and mobile.
