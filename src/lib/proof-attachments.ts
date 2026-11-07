@@ -7,6 +7,7 @@ import p6 from "@/assets/proof/proof-6.jpg.asset.json";
 import p7 from "@/assets/proof/proof-7.jpg.asset.json";
 import p8 from "@/assets/proof/proof-8.jpg.asset.json";
 import p9 from "@/assets/proof/proof-9.jpg.asset.json";
+import live from "@/assets/proof/case-live.jpg.asset.json";
 import { mediaUrl } from "@/lib/media-url";
 
 export const proofAttachments = [

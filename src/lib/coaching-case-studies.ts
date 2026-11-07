@@ -1,7 +1,6 @@
 import strategy from "@/assets/proof/case-strategy.jpg.asset.json";
 import perspective from "@/assets/proof/case-perspective.jpg.asset.json";
 import execution from "@/assets/proof/case-execution.jpg.asset.json";
-import live from "@/assets/proof/case-live.jpg.asset.json";
 import learning from "@/assets/proof/case-learning.jpg.asset.json";
 import { mediaUrl } from "@/lib/media-url";
 
