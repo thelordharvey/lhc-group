@@ -9,5 +9,5 @@
 - [x] Add all newly supplied proof images with individual descriptions and floating liquid-glass styling.
 - [x] Separate proofs by program and add five one-on-one case studies with evidence-based context.
 - [x] Verify both proof categories and new attachments on desktop and mobile.
-- [ ] Rewrite Mike and Harry case studies and move live-session reactions to Tailored strategy access.
-- [ ] Verify the reordered proof sections on desktop and mobile.
+- [x] Rewrite Mike and Harry case studies and move live-session reactions to Tailored strategy access.
+- [x] Verify the reordered proof sections on desktop and mobile.
