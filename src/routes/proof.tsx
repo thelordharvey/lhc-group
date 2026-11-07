@@ -197,7 +197,7 @@ function ProofPage() {
              </TabsList>
              <TabsContent value="one-on-one" className="pt-6">
                <h2 className="text-2xl font-semibold">{language === "fr" ? "Études de cas · Coaching individuel" : "Case studies · One-on-one coaching"}</h2>
-               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">{language === "fr" ? "Retours d’apprentissage, préparation et exécution : cinq pièces jointes fournies pour le programme individuel. Les parcours non documentés restent non précisés ; ces captures ne constituent pas un historique complet ni une garantie de résultats." : "Learning feedback, preparation and execution: five attachments supplied for the individual program. Undocumented backgrounds remain unspecified; these screenshots are not a complete history or a guarantee of results."}</p>
+               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">{language === "fr" ? "Deux parcours documentés : Mike, trader inexpérimenté après un compte grillé, et Harry, trader expérimenté sans stratégie claire. Ces captures ne constituent pas un historique complet ni une garantie de résultats." : "Two documented journeys: Mike, an inexperienced trader after a blown account, and Harry, an experienced trader without a clear strategy. These screenshots are not a complete history or a guarantee of results."}</p>
                <div className="mt-8 columns-1 gap-6 lg:columns-2">
                  {coachingCaseStudies.map((p, index) => (
                    <figure key={p.id} className="proof-float proof-glass mb-6 break-inside-avoid overflow-hidden rounded-lg liquid-glass liquid-glass-sheen">

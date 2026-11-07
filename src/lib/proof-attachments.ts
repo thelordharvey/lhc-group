@@ -7,6 +7,7 @@ import p6 from "@/assets/proof/proof-6.jpg.asset.json";
 import p7 from "@/assets/proof/proof-7.jpg.asset.json";
 import p8 from "@/assets/proof/proof-8.jpg.asset.json";
 import p9 from "@/assets/proof/proof-9.jpg.asset.json";
+import live from "@/assets/proof/case-live.jpg.asset.json";
 import { mediaUrl } from "@/lib/media-url";
 
 export const proofAttachments = [
@@ -19,4 +20,5 @@ export const proofAttachments = [
   { asset: p7, title: "Support from the group", frTitle: "Soutien du groupe", note: "Another message from the community expressing encouragement and appreciation for Harvey.", frNote: "Un autre message de la communauté exprimant encouragement et appréciation pour Harvey." },
   { asset: p8, title: "TradeLocker · active trade", frTitle: "TradeLocker · trade actif", note: "An active XAUUSD sell position of 0.01 lots showing a floating $16.73 result. This is an open-trade snapshot, not a final result.", frNote: "Une vente XAUUSD active de 0,01 lot affichant un résultat flottant de 16,73 $. Il s'agit d'une position ouverte, pas d'un résultat final." },
   { asset: p9, title: "TradeLocker · closed trade", frTitle: "TradeLocker · trade clôturé", note: "The closed XAUUSD sell screenshot displays $47.14 profit on 0.01 lots, alongside its opening and closing prices.", frNote: "La capture de la vente XAUUSD clôturée affiche un gain de 47,14 $ pour 0,01 lot, avec ses prix d'ouverture et de clôture." },
+  { asset: live, title: "Reactions to a live session", frTitle: "Réactions à une séance en direct", note: "Two members react enthusiastically to watching an event unfold live. The screenshot alone does not document their trades or results.", frNote: "Deux membres réagissent avec enthousiasme à une séquence suivie en direct. La capture seule ne documente ni leurs trades ni leurs résultats." },
 ].map(({ asset, ...item }) => ({ ...item, src: mediaUrl(asset.url), program: "tailored" as const }));
