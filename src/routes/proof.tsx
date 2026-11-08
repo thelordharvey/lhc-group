@@ -175,7 +175,7 @@ function ProofPage() {
         )}
       </nav>
 
-      <main className="px-5 pt-32 pb-20">
+      <main className="px-5 pt-40 pb-20 sm:pt-32">
         <div className="relative mx-auto max-w-5xl">
           <header className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-medium text-primary">LHC FOREX · {language === "fr" ? "RETOURS & PROGRESSION" : "FEEDBACK & PROGRESS"}</p>
