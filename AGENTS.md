@@ -15,3 +15,4 @@
 - Register generated coaching videos as CDN asset pointers and render them in a dedicated player with native controls and no autoplay, keeping large media out of the repository and playback visitor-controlled.
 - Resolve CDN media through the published LHC origin so the same media can load on Netlify; keep bilingual proof attachment captions in a shared client-safe catalog.
 - Keep one-on-one case studies in a separate bilingual evidence catalog and display program galleries with shared Tabs, so attachments retain their program classification without mixing testimonial identities.
+- Present each member journey with its source message followed by its related result in the shared ProofJourneys view, so evidence stays paired with the correct trader.
