@@ -8,7 +8,9 @@ import logoUrl from "@/assets/lhc-logo.png";
 import { SiteControls } from "@/components/SiteControls";
 import { useSiteSettings } from "@/lib/site-settings";
 import { proofAttachments } from "@/lib/proof-attachments";
-import { coachingCaseStudies } from "@/lib/coaching-case-studies";
+import { ProofJourneys } from "@/components/ProofJourneys";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/proof")({
@@ -18,12 +20,12 @@ export const Route = createFileRoute("/proof")({
       {
         name: "description",
         content:
-          "Real trade setups and chart proof from the LHC Forex coaching desk.",
+          "Discover Mike and Harry’s coaching journeys, trade screenshots and member feedback from LHC Forex.",
       },
       { property: "og:title", content: "Proof — LHC Forex" },
       {
         property: "og:description",
-        content: "Real trade setups and chart proof from the LHC Forex coaching desk.",
+        content: "Discover Mike and Harry’s coaching journeys, trade screenshots and member feedback from LHC Forex.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -173,73 +175,50 @@ function ProofPage() {
         )}
       </nav>
 
-      <main className="px-5 pt-32 pb-20">
-        <div className="relative mx-auto max-w-6xl">
-          <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-            <div className="blob animate-blob left-[5%] top-[1%] h-[420px] w-[420px] bg-primary/25 sm:left-[-150px] sm:top-[40px]" />
-            <div className="blob animate-blob left-[35%] top-[14%] h-[400px] w-[400px] bg-primary-glow/20 [animation-delay:-4s] sm:left-auto sm:right-[-130px] sm:top-[380px]" />
-            <div className="blob animate-blob left-[8%] top-[28%] h-[460px] w-[460px] bg-primary/18 [animation-delay:-8s] sm:left-[32%] sm:top-auto sm:bottom-[52%]" />
-            <div className="blob animate-blob left-[40%] top-[45%] h-[440px] w-[440px] bg-primary/20 [animation-delay:-12s] sm:left-auto sm:right-[6%] sm:top-auto sm:bottom-[34%]" />
-            <div className="blob animate-blob left-[5%] top-[62%] h-[460px] w-[460px] bg-primary-glow/18 [animation-delay:-6s] sm:left-[-120px] sm:top-auto sm:bottom-[18%]" />
-            <div className="blob animate-blob left-[30%] top-[80%] h-[440px] w-[440px] bg-primary/20 [animation-delay:-15s] sm:left-auto sm:right-[-140px] sm:top-auto sm:bottom-[2%]" />
-          </div>
-          <header className="liquid-glass liquid-glass-sheen rounded-3xl p-6 sm:p-8">
-            <p className="text-[13px] font-semibold uppercase tracking-[1.5px] text-primary">{t("Proof")}</p>
-            <h1 className="mt-3 max-w-3xl text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-              {t("Real charts from the coaching desk")}
+      <main className="px-5 pt-40 pb-20 sm:pt-32">
+        <div className="relative mx-auto max-w-5xl">
+          <header className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-medium text-primary">LHC FOREX · {language === "fr" ? "RETOURS & PROGRESSION" : "FEEDBACK & PROGRESS"}</p>
+            <h1 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">
+              {language === "fr" ? "Les résultats de nos" : "The results of our"} <span className="text-primary">{language === "fr" ? "membres" : "members"}</span>
             </h1>
-            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("Setups shared with our students — orderblocks, imbalance, liquidity and Fibonacci executed with the same rules we teach in 1-on-1 coaching.")}
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-muted-foreground">
+              {language === "fr" ? "Les parcours, le travail et la progression partagés par les membres de LHC Forex." : "The journeys, work and progress shared by members of LHC Forex."}
             </p>
+            <Button asChild variant="link" className="mt-4 text-primary"><Link to="/"><ArrowLeft />{t("Back home")}</Link></Button>
           </header>
-          <Tabs defaultValue="one-on-one" className="mt-8">
-            <TabsList aria-label={language === "fr" ? "Programmes de coaching" : "Coaching programs"} className="sticky top-24 z-20 flex h-auto w-fit max-w-full flex-wrap justify-start gap-2.5 rounded-full liquid-glass p-1.5 shadow-lg">
-              <TabsTrigger value="one-on-one" className="glass-btn rounded-full border border-transparent px-4 py-2.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:text-foreground data-[state=active]:border-primary/40 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_8px_24px_-8px_var(--primary)] sm:px-5 sm:text-sm">One-on-one coaching program</TabsTrigger>
-              <TabsTrigger value="tailored" className="glass-btn rounded-full border border-transparent px-4 py-2.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:text-foreground data-[state=active]:border-primary/40 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_8px_24px_-8px_var(--primary)] sm:px-5 sm:text-sm">{language === "fr" ? "Tailored stratégie access" : "Tailored strategy access"}</TabsTrigger>
+          <Tabs defaultValue="one-on-one" className="mt-10">
+            <TabsList aria-label={language === "fr" ? "Programmes de coaching" : "Coaching programs"} className="mx-auto flex h-auto w-fit max-w-full flex-wrap justify-center gap-1.5 rounded-2xl liquid-glass p-1.5 shadow-lg">
+              <TabsTrigger value="one-on-one" className="glass-btn rounded-full border border-transparent min-h-10 whitespace-normal px-3 py-2.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:text-foreground data-[state=active]:border-primary/40 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_8px_24px_-8px_var(--primary)] sm:px-5 sm:text-sm">One-on-one coaching program</TabsTrigger>
+              <TabsTrigger value="tailored" className="glass-btn rounded-full border border-transparent min-h-10 whitespace-normal px-3 py-2.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:text-foreground data-[state=active]:border-primary/40 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_8px_24px_-8px_var(--primary)] sm:px-5 sm:text-sm">{language === "fr" ? "Tailored stratégie access" : "Tailored strategy access"}</TabsTrigger>
             </TabsList>
-            <TabsContent value="one-on-one" className="pt-6">
-              <div className="liquid-glass liquid-glass-sheen rounded-3xl p-5 sm:p-6">
-                <p className="mono-label text-primary">{language === "fr" ? "Programme individuel" : "Individual program"}</p>
-                <h2 className="mt-2 text-2xl font-semibold">{language === "fr" ? "Études de cas · Coaching individuel" : "Case studies · One-on-one coaching"}</h2>
-                <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">{language === "fr" ? "Deux parcours documentés : Mike, trader inexpérimenté après un compte grillé, et Harry, trader expérimenté sans stratégie claire. Ces captures ne constituent pas un historique complet ni une garantie de résultats." : "Two documented journeys: Mike, an inexperienced trader after a blown account, and Harry, an experienced trader without a clear strategy. These screenshots are not a complete history or a guarantee of results."}</p>
-              </div>
-              <div className="mt-8 grid gap-6 lg:grid-cols-2">
-                {coachingCaseStudies.map((p, index) => (
-                  <figure key={p.id} className="proof-float proof-glass break-inside-avoid overflow-hidden rounded-3xl liquid-glass liquid-glass-sheen">
-                    <img src={p.src} alt={language === "fr" ? p.frTitle : p.title} loading="lazy" className="block aspect-[4/3] w-full bg-secondary object-contain" />
-                    <figcaption className="p-5 sm:p-6">
-                      <p className="text-xs font-semibold uppercase text-primary">{language === "fr" ? "Étude de cas" : "Case study"} · {String(index + 1).padStart(2, "0")}</p>
-                      <h3 className="mt-2 text-lg font-semibold">{language === "fr" ? p.frTitle : p.title}</h3>
-                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{language === "fr" ? p.frNote : p.note}</p>
-                      <dl className="mt-5 grid gap-4 border-t border-border pt-5 text-sm sm:grid-cols-2">
-                        {[
-                          [language === "fr" ? "Expérience" : "Experience", language === "fr" ? p.frExperience : p.experience],
-                          [language === "fr" ? "Niveau" : "Level", language === "fr" ? p.frLevel : p.level],
-                          [language === "fr" ? "Débuts" : "Beginnings", language === "fr" ? p.frBeginning : p.beginning],
-                          [language === "fr" ? "Axe de l’étude" : "Study focus", language === "fr" ? p.frFocus : p.focus],
-                        ].map(([label, text]) => <div key={label} className="rounded-2xl border border-border/60 bg-background/30 p-3"><dt className="font-semibold">{label}</dt><dd className="mt-1 leading-relaxed text-muted-foreground">{text}</dd></div>)}
-                      </dl>
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
+            <TabsContent value="one-on-one" className="pt-12">
+              <section aria-labelledby="journeys-heading">
+                <div className="mb-8 text-center">
+                  <p className="text-xs font-semibold text-primary">{language === "fr" ? "ÉTUDES DE CAS" : "CASE STUDIES"}</p>
+                  <h2 id="journeys-heading" className="mt-4 text-2xl font-semibold sm:text-3xl">{language === "fr" ? "Les parcours de progression" : "The journeys behind the progress"}</h2>
+                  <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-muted-foreground">{language === "fr" ? "Avant les captures, les histoires : d’où ils partaient, ce qu’ils ont travaillé et ce qui a changé." : "Before the screenshots, the stories: where they started, what they worked on and what changed."}</p>
+                </div>
+                <ProofJourneys />
+              </section>
             </TabsContent>
-            <TabsContent value="tailored" className="pt-6">
-              <div className="liquid-glass liquid-glass-sheen rounded-3xl p-5 sm:p-6">
-                <p className="mono-label text-primary">{language === "fr" ? "Accès stratégie" : "Strategy access"}</p>
-                <h2 className="mt-2 text-2xl font-semibold">{language === "fr" ? "Tailored stratégie access" : "Tailored strategy access"}</h2>
+            <TabsContent value="tailored" className="pt-12">
+              <div className="text-center">
+                <p className="text-xs font-semibold text-primary">{language === "fr" ? "CAPTURES PARTAGÉES" : "SHARED SCREENSHOTS"}</p>
+                <h2 className="mt-4 text-2xl font-semibold sm:text-3xl">{language === "fr" ? "Le travail des membres, en images" : "Members’ work, in pictures"}</h2>
+                <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-muted-foreground">{language === "fr" ? "Analyses de marché, exécutions et échanges du programme Tailored strategy access." : "Market analysis, executions and conversations from Tailored strategy access."}</p>
               </div>
-              <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              <div className="mt-8 grid gap-5 md:grid-cols-3">
                 {PROOF.map((p) => (
                   <figure
                     key={p.src}
-                    className="proof-float proof-glass overflow-hidden rounded-3xl liquid-glass liquid-glass-sheen"
+                    className="proof-float proof-glass overflow-hidden rounded-2xl liquid-glass liquid-glass-sheen"
                   >
                     <img
                       src={p.src}
                       alt={`${p.pair} trade setup shared by LHC Forex on ${t(p.date)}`}
                       loading="lazy"
-                      className="aspect-[16/10] w-full bg-secondary object-cover"
+                      className="aspect-[16/10] w-full bg-secondary/40 object-contain"
                     />
                     <figcaption className="p-5">
                       <div className="flex items-center justify-between gap-3">
@@ -253,7 +232,7 @@ function ProofPage() {
               </div>
               <div className="mt-10 columns-1 gap-6 sm:columns-2 lg:columns-3">
                 {proofAttachments.map((p) => (
-                  <figure key={p.src} className="proof-float proof-glass mb-6 break-inside-avoid overflow-hidden rounded-3xl liquid-glass liquid-glass-sheen">
+                  <figure key={p.src} className="proof-float proof-glass mb-6 break-inside-avoid overflow-hidden rounded-2xl liquid-glass liquid-glass-sheen">
                     <img src={p.src} alt={language === "fr" ? p.frTitle : p.title} loading="lazy" className="block h-auto max-h-[540px] w-full bg-secondary object-contain" />
                     <figcaption className="p-5">
                       <h3 className="text-base font-semibold">{language === "fr" ? p.frTitle : p.title}</h3>
@@ -264,8 +243,8 @@ function ProofPage() {
               </div>
             </TabsContent>
           </Tabs>
-          <p className="mt-6 max-w-3xl text-xs leading-relaxed text-muted-foreground">{language === "fr" ? "Captures et messages fournis par LHC Forex. Les positions ouvertes peuvent évoluer ; les résultats passés ne garantissent pas les résultats futurs." : "Screenshots and messages supplied by LHC Forex. Open positions can change; past results do not guarantee future performance."}</p>
-          <div className="mt-12 flex flex-wrap gap-3">
+          <p className="mx-auto mt-10 max-w-2xl text-center text-xs leading-6 text-muted-foreground">{language === "fr" ? "Captures et messages fournis par LHC Forex. Les positions ouvertes peuvent évoluer ; les résultats passés ne garantissent pas les résultats futurs." : "Screenshots and messages supplied by LHC Forex. Open positions can change; past results do not guarantee future performance."}</p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               to="/"
               className="glass-btn rounded-full border border-border px-6 py-3 text-[15px] font-medium transition-colors hover:bg-secondary"
