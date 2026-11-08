@@ -193,9 +193,9 @@ function ProofPage() {
             </p>
           </header>
           <Tabs defaultValue="one-on-one" className="mt-8">
-            <TabsList aria-label={language === "fr" ? "Programmes de coaching" : "Coaching programs"} className="sticky top-24 z-20 flex h-auto w-fit max-w-full flex-wrap justify-start gap-2 bg-transparent p-0">
-              <TabsTrigger value="one-on-one" className="glass-btn liquid-glass liquid-glass-sheen min-h-10 whitespace-normal px-3 py-2 text-xs data-[state=active]:bg-primary data-[state=active]:text-primary-foreground sm:text-sm">One-on-one coaching program</TabsTrigger>
-              <TabsTrigger value="tailored" className="glass-btn liquid-glass liquid-glass-sheen min-h-10 whitespace-normal px-3 py-2 text-xs data-[state=active]:bg-primary data-[state=active]:text-primary-foreground sm:text-sm">{language === "fr" ? "Tailored stratégie access" : "Tailored strategy access"}</TabsTrigger>
+            <TabsList aria-label={language === "fr" ? "Programmes de coaching" : "Coaching programs"} className="sticky top-24 z-20 flex h-auto w-fit max-w-full flex-wrap justify-start gap-2.5 rounded-full liquid-glass p-1.5 shadow-lg">
+              <TabsTrigger value="one-on-one" className="glass-btn rounded-full border border-transparent px-4 py-2.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:text-foreground data-[state=active]:border-primary/40 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_8px_24px_-8px_var(--primary)] sm:px-5 sm:text-sm">One-on-one coaching program</TabsTrigger>
+              <TabsTrigger value="tailored" className="glass-btn rounded-full border border-transparent px-4 py-2.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:text-foreground data-[state=active]:border-primary/40 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_8px_24px_-8px_var(--primary)] sm:px-5 sm:text-sm">{language === "fr" ? "Tailored stratégie access" : "Tailored strategy access"}</TabsTrigger>
             </TabsList>
             <TabsContent value="one-on-one" className="pt-6">
               <div className="liquid-glass liquid-glass-sheen rounded-3xl p-5 sm:p-6">
