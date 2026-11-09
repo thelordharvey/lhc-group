@@ -8,8 +8,7 @@ export function ProofJourneys() {
   const { language } = useSiteSettings();
   const fr = language === "fr";
   const [expanded, setExpanded] = useState<string[]>([]);
-  const journeys = [
-    {
+  const journeys = [    {
       id: "mike", name: "Mike", resultId: "mike-result",
       profile: fr ? "Trader débutant · Reconstruire son approche" : "New trader · Rebuilding his approach",
       headline: fr ? "D’un compte grillé à une stratégie mieux comprise." : "From a blown account to a better understanding of his strategy.",
