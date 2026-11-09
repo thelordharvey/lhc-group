@@ -25,7 +25,11 @@ export function ProofJourneys() {
     },
   ];
 
+  const journeyIds = new Set(journeys.flatMap((journey) => [journey.id, journey.resultId]));
+  const standalone = coachingCaseStudies.filter((item) => !journeyIds.has(item.id));
+
   return (
+    <>
     <div className="grid items-start gap-6 md:grid-cols-2">
       {journeys.map((journey, index) => {
         const start = coachingCaseStudies.find((item) => item.id === journey.id);
@@ -71,5 +75,24 @@ export function ProofJourneys() {
         );
       })}
     </div>
+    {standalone.length > 0 && (
+      <div className="mt-6 grid gap-6">
+        {standalone.map((item) => (
+          <article key={item.id} className="proof-float proof-glass liquid-glass liquid-glass-sheen overflow-hidden rounded-2xl md:grid md:grid-cols-2 md:items-center">
+            <div className="border-b border-border bg-secondary/40 p-5 md:border-b-0 md:border-r">
+              <img src={item.src} alt={fr ? item.frTitle : item.title} loading="lazy" className="mx-auto max-h-[440px] w-full object-contain" />
+            </div>
+            <div className="p-6 sm:p-7">
+              <span className="inline-flex rounded-full border border-primary/25 bg-background/80 px-3 py-1.5 text-xs font-medium text-primary">
+                {fr ? "Résultat membre" : "Member result"}
+              </span>
+              <h3 className="mt-5 text-2xl font-semibold">{fr ? item.frTitle : item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">{fr ? item.frNote : item.note}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+    </>
   );
 }

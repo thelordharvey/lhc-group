@@ -8,8 +8,8 @@ test("the ten tailored strategy access proofs include the live-session reactions
   expect(proofAttachments.at(-1).title).toBe("Reactions to a live session");
 });
 
-test("four one-on-one case studies pair Mike with his result and Harry with his progress", () => {
-  expect(coachingCaseStudies).toHaveLength(4);
-  expect(coachingCaseStudies.map((proof) => proof.id)).toEqual(["mike", "mike-result", "harry", "harry-progress"]);
+test("five one-on-one case studies pair Mike with his result, Harry with his progress and keep the FTMO milestone standalone", () => {
+  expect(coachingCaseStudies).toHaveLength(5);
+  expect(coachingCaseStudies.map((proof) => proof.id)).toEqual(["mike", "mike-result", "harry", "harry-progress", "ftmo-milestone"]);
   expect(coachingCaseStudies.every((proof) => proof.program === "one-on-one")).toBe(true);
 });
