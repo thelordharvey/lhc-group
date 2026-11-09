@@ -2,6 +2,7 @@ import strategy from "@/assets/proof/case-strategy.jpg.asset.json";
 import perspective from "@/assets/proof/case-perspective.jpg.asset.json";
 import execution from "@/assets/proof/case-execution.jpg.asset.json";
 import learning from "@/assets/proof/case-learning.jpg.asset.json";
+import ftmo from "@/assets/proof/case-ftmo.jpg.asset.json";
 import { mediaUrl } from "@/lib/media-url";
 
 export const coachingCaseStudies = [
@@ -52,6 +53,18 @@ export const coachingCaseStudies = [
     frBeginning: "Il fait suite au manque de stratégie claire décrit dans la première étude de cas de Harry.",
     focus: "He is willing to pursue the coaching program.",
     frFocus: "Il est prêt à poursuivre le programme de coaching.",
+  },
+  {
+    id: "ftmo-milestone", asset: ftmo,
+    title: "A member · FTMO funded account verification", frTitle: "Un membre · vérification du compte financé FTMO réussie",
+    note: "The member's message announces passing the FTMO funded account verification and thanks Harvey for his guidance; Harvey replies with congratulations. The message alone does not document trading results, account size or withdrawals.",
+    frNote: "Le message d'un membre annonce la réussite de la vérification du compte financé FTMO et remercie Harvey pour son accompagnement ; Harvey répond avec félicitations. Le message seul ne documente ni les résultats de trading, ni la taille du compte, ni les retraits.",
+    experience: "A member shares this announcement directly with Harvey.",
+    frExperience: "Un membre partage cette annonce directement avec Harvey.",
+    beginning: "The message is the member's own words after the coaching support.",
+    frBeginning: "Le message est les mots du membre lui-même après l'accompagnement du coaching.",
+    focus: "Treat this as a stated milestone, not a performance record.",
+    frFocus: "À considérer comme une étape déclarée, pas comme un historique de performance.",
   },
 ].map(({ asset, ...item }) => ({
   ...item, src: mediaUrl(asset.url), program: "one-on-one" as const,
