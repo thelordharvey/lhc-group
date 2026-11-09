@@ -4,7 +4,7 @@ import p3 from "@/assets/proof/proof-3.png.asset.json";
 import p4 from "@/assets/proof/proof-4.png.asset.json";
 import p5 from "@/assets/proof/proof-5.jpg.asset.json";
 import p6 from "@/assets/proof/proof-6.jpg.asset.json";
-import p7 from "@/assets/proof/proof-7.jpg.asset.json";
+import p7 from "@/assets/proof/proof-7-edited.jpg.asset.json";
 import p8 from "@/assets/proof/proof-8.jpg.asset.json";
 import p9 from "@/assets/proof/proof-9.jpg.asset.json";
 import live from "@/assets/proof/case-live.jpg.asset.json";
