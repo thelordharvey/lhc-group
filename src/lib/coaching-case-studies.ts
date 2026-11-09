@@ -45,7 +45,7 @@ export const coachingCaseStudies = [
   {
     id: "harry-progress", asset: learning,
     title: "Harry · learning and commitment", frTitle: "Harry · apprentissage et engagement",
-    note: ""I wouldn't have learned so much without you." Messages like this from Harry are why we do what we do.",
+    note: "“I wouldn’t have learned so much without you.” Messages like this from Harry are why we do what we do.",
     frNote: "« Je n’aurais pas autant appris sans toi. » Des messages comme celui de Harry, c’est pour ça qu’on fait ce métier.",
     experience: "He's come a long way since his first sessions with us.",
     frExperience: "Il a fait beaucoup de chemin depuis ses premières séances avec nous.",
