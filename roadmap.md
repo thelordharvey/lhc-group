@@ -13,3 +13,4 @@
 - [x] Verify the reordered proof sections on desktop and mobile.
 - [x] Adapt the reference results presentation to LHC with two member journeys and organized program galleries.
 - [x] Verify journey details, both proof categories, and desktop/mobile layouts.
+- [x] Add the FTMO funded-account verification message as a one-on-one member result.
